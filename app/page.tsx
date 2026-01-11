@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { ObfuscatedEmail } from "./obfuscated-email";
+import { CvTooltip } from "./cv-tooltip";
 
 export default function Home() {
   return (
@@ -63,19 +64,7 @@ export default function Home() {
           </h3>
           <ul className="flex flex-col gap-2">
             <li>
-              <div className="relative group inline-flex items-center">
-                <Link
-                  href="/cv.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all cursor-not-allowed"
-                >
-                  CV
-                </Link>
-                <span className="absolute left-full ml-3 px-2 py-1 bg-neutral-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none dark:bg-neutral-200 dark:text-neutral-900 shadow-sm">
-                  Coming Soon!
-                </span>
-              </div>
+              <CvTooltip />
             </li>
             <li>
               <Link

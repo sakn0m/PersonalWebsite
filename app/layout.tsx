@@ -10,7 +10,7 @@ const garamond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Giorgio Vanini",
+  title: "Giorgio Vanini | Data Analyst",
   description: "Portfolio",
 };
 
