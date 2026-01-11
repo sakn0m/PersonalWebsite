@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
 
-// 1. Configure the beautiful serif font
-const garamond = EB_Garamond({ 
+const garamond = EB_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600"], // Regular, Medium, Semi-bold
+  weight: ["400", "500", "600"],
   variable: "--font-garamond",
 });
 
@@ -20,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${garamond.variable} font-serif antialiased bg-[#fffff] text-neutral-900 selection:bg-neutral-200 selection:text-black`}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${garamond.variable} font-serif antialiased bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50 transition-colors duration-300`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
