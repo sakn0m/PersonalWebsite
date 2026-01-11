@@ -2,77 +2,92 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="max-w-[640px] mx-auto px-6 py-24 md:py-32 fade-in">
-      {/* Header / Name */}
-      <header className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-black">
+    <main className="max-w-2xl mx-auto px-6 py-24 md:py-32 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      
+      {/* Header */}
+      <header className="mb-12 space-y-2">
+        <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">
           Your Name
         </h1>
-        <p className="mt-2 text-neutral-500 text-lg">
-          Role / One-liner description
+        <p className="text-lg text-neutral-500">
+          Software Engineer & Designer
         </p>
       </header>
 
-      {/* Main Content / Bio */}
-      <section className="prose prose-neutral prose-lg text-neutral-800 leading-relaxed font-serif">
-        <p>
-          This is an informal business card. I build high-performance 
-          software and design minimal interfaces. I value clarity over complexity 
-          and speed over bells and whistles.
+      {/* Bio */}
+      <section className="prose prose-neutral prose-lg leading-relaxed text-neutral-800">
+        <p className="mb-6">
+          I build minimal, high-performance web interfaces. This is my digital business card. 
+          I focus on typography, speed, and clean code.
         </p>
-        <p>
-          Currently based in [Location], working on [Project] and open to 
-          collaborating on interesting technical challenges.
+        <p className="mb-6">
+          Currently based in Italy, taking inspiration from the classics to build the future. 
+          I am always open to discussing new projects.
         </p>
       </section>
 
-      {/* Links Section */}
-      <footer className="mt-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-lg">
+      {/* Links / Footer */}
+      <footer className="mt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
           
-          {/* Column 1: Socials */}
+          {/* Socials */}
           <div>
-            <h3 className="text-sm font-sans text-neutral-400 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-sans font-semibold text-neutral-400 uppercase tracking-widest mb-4">
               Connect
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3 text-lg">
               <li>
-                <Link href="https://twitter.com" className="link-hover">
+                <Link 
+                  href="https://twitter.com" 
+                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
+                >
                   Twitter / X
                 </Link>
               </li>
               <li>
-                <Link href="https://linkedin.com" className="link-hover">
-                  LinkedIn
+                <Link 
+                  href="mailto:hello@example.com" 
+                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
+                >
+                  Email
                 </Link>
               </li>
               <li>
-                <Link href="mailto:you@example.com" className="link-hover">
-                  Email
+                <Link 
+                  href="https://linkedin.com" 
+                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
+                >
+                  LinkedIn
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 2: Projects (Optional) */}
+          {/* Projects or Other Links */}
           <div>
-            <h3 className="text-sm font-sans text-neutral-400 uppercase tracking-widest mb-4">
-              Projects
+            <h3 className="text-xs font-sans font-semibold text-neutral-400 uppercase tracking-widest mb-4">
+              Work
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3 text-lg">
               <li>
-                <Link href="#" className="link-hover">
-                  Project Alpha
+                <Link 
+                  href="#" 
+                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
+                >
+                  Torbet Inspiration
                 </Link>
               </li>
               <li>
-                <Link href="#" className="link-hover">
-                  Studio Work
+                <Link 
+                  href="#" 
+                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
+                >
+                  Minimal Portfolio
                 </Link>
               </li>
             </ul>
           </div>
-          
+
         </div>
       </footer>
     </main>
