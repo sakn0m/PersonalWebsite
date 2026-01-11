@@ -2,93 +2,76 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="max-w-2xl mx-auto px-6 py-24 md:py-32 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-      
+    <main className="max-w-[600px] mx-auto px-6 py-24 md:py-32 font-serif text-neutral-900 antialiased fade-in">
+
       {/* Header */}
-      <header className="mb-12 space-y-2">
-        <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">
+      <header className="mb-12">
+        <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-2">
           Your Name
         </h1>
-        <p className="text-lg text-neutral-500">
+        <p className="text-xl text-neutral-500 italic">
           Software Engineer & Designer
         </p>
       </header>
 
-      {/* Bio */}
-      <section className="prose prose-neutral prose-lg leading-relaxed text-neutral-800">
-        <p className="mb-6">
-          I build minimal, high-performance web interfaces. This is my digital business card. 
+      {/* Bio Section */}
+      <section className="text-lg leading-relaxed space-y-6 text-neutral-800">
+        <p>
+          I build minimal, high-performance web interfaces. This is my digital business card.
           I focus on typography, speed, and clean code.
         </p>
-        <p className="mb-6">
-          Currently based in Italy, taking inspiration from the classics to build the future. 
+        <p>
+          Currently based in Italy, taking inspiration from the classics to build the future.
           I am always open to discussing new projects.
         </p>
       </section>
 
-      {/* Links / Footer */}
-      <footer className="mt-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-          
-          {/* Socials */}
-          <div>
-            <h3 className="text-xs font-sans font-semibold text-neutral-400 uppercase tracking-widest mb-4">
-              Connect
-            </h3>
-            <ul className="space-y-3 text-lg">
-              <li>
-                <Link 
-                  href="https://twitter.com" 
-                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
-                >
-                  Twitter / X
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="mailto:hello@example.com" 
-                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
-                >
-                  Email
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="https://linkedin.com" 
-                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
-                >
-                  LinkedIn
-                </Link>
-              </li>
-            </ul>
-          </div>
+      {/* Links Section */}
+      <footer className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-10">
 
-          {/* Projects or Other Links */}
-          <div>
-            <h3 className="text-xs font-sans font-semibold text-neutral-400 uppercase tracking-widest mb-4">
-              Work
-            </h3>
-            <ul className="space-y-3 text-lg">
-              <li>
-                <Link 
-                  href="#" 
-                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
-                >
-                  Torbet Inspiration
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="#" 
-                  className="hover:text-neutral-500 transition-colors border-b border-neutral-300 hover:border-neutral-500 pb-0.5"
-                >
-                  Minimal Portfolio
-                </Link>
-              </li>
-            </ul>
-          </div>
-
+        {/* Connect Column */}
+        <div>
+          <h3 className="text-xs font-sans font-bold text-neutral-400 uppercase tracking-widest mb-4">
+            Connect
+          </h3>
+          <ul className="flex flex-col gap-2">
+            <li>
+              <Link href="https://twitter.com" className="text-lg border-b border-transparent hover:border-neutral-400 transition-all">
+                Twitter / X
+              </Link>
+            </li>
+            <li>
+              <Link href="mailto:email@example.com" className="text-lg border-b border-transparent hover:border-neutral-400 transition-all">
+                Email
+              </Link>
+            </li>
+            <li>
+              <Link href="https://linkedin.com" className="text-lg border-b border-transparent hover:border-neutral-400 transition-all">
+                LinkedIn
+              </Link>
+            </li>
+          </ul>
         </div>
+
+        {/* Work Column */}
+        <div>
+          <h3 className="text-xs font-sans font-bold text-neutral-400 uppercase tracking-widest mb-4">
+            Work
+          </h3>
+          <ul className="flex flex-col gap-2">
+            <li>
+              <Link href="#" className="text-lg border-b border-transparent hover:border-neutral-400 transition-all">
+                Torbet Inspiration
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="text-lg border-b border-transparent hover:border-neutral-400 transition-all">
+                Minimal Portfolio
+              </Link>
+            </li>
+          </ul>
+        </div>
+
       </footer>
     </main>
   );
