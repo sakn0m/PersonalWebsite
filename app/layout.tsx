@@ -10,8 +10,8 @@ const garamond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name",
-  description: "Personal business card.",
+  title: "Giorgio Vanini",
+  description: "Portfolio",
 };
 
 export default function RootLayout({

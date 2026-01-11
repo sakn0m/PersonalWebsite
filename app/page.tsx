@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
+import { ObfuscatedEmail } from "./obfuscated-email";
 
 export default function Home() {
   return (
@@ -13,22 +14,30 @@ export default function Home() {
       {/* Header */}
       <header className="mb-12">
         <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-2 dark:text-white">
-          Your Name
+          Giorgio Vanini
         </h1>
         <p className="text-xl text-neutral-500 dark:text-neutral-400 italic">
-          Software Engineer & Designer
+          Data Analyst
         </p>
       </header>
 
       {/* Bio Section */}
       <section className="text-lg leading-relaxed space-y-6 text-neutral-800 dark:text-neutral-300">
         <p>
-          I build minimal, high-performance web interfaces. This is my digital business card.
-          I focus on typography, speed, and clean code.
+          Graduating from LUISS Guido Carli, I am a Data Analyst with a strong background in statistics and machine learning.
         </p>
         <p>
-          Currently based in Italy, taking inspiration from the classics to build the future.
-          I am always open to discussing new projects.
+          Currently based in Italy 🇮🇹 🇪🇺, I am always open to discussing new projects.
+        </p>
+      </section>
+
+      {/* Toolkit Section */}
+      <section className="mt-10">
+        <h3 className="text-xs font-sans font-bold text-neutral-400 uppercase tracking-widest mb-4">
+          Toolkit
+        </h3>
+        <p className="text-lg text-neutral-800 dark:text-neutral-300 leading-relaxed font-medium">
+          Python, Pandas, SQL, R, PyTorch, Scikit-learn, Tableau, PowerBI, Git
         </p>
       </section>
 
@@ -42,14 +51,7 @@ export default function Home() {
           </h3>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link href="https://twitter.com" className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all">
-                Twitter / X
-              </Link>
-            </li>
-            <li>
-              <Link href="mailto:email@example.com" className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all">
-                Email
-              </Link>
+              <ObfuscatedEmail className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all cursor-pointer" />
             </li>
           </ul>
         </div>
@@ -61,13 +63,33 @@ export default function Home() {
           </h3>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link href="#" className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all">
-                Torbet Inspiration
+              <Link
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all"
+              >
+                CV
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all">
-                Minimal Portfolio
+              <Link
+                href="https://linkedin.com/in/your-profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all"
+              >
+                LinkedIn
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://github.com/your-username"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all"
+              >
+                GitHub
               </Link>
             </li>
           </ul>
