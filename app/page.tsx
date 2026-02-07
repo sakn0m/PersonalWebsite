@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { ObfuscatedEmail } from "./obfuscated-email";
 import { CvTooltip } from "./cv-tooltip";
+import { SectionHeader } from "../components/ui/section-header";
+import { SocialLink } from "../components/ui/social-link";
 
 export default function Home() {
   return (
@@ -34,9 +35,7 @@ export default function Home() {
 
       {/* Toolkit Section */}
       <section className="mt-10">
-        <h3 className="text-xs font-sans font-bold text-neutral-400 uppercase tracking-widest mb-4">
-          Toolkit
-        </h3>
+        <SectionHeader title="Toolkit" />
         <p className="text-lg text-neutral-800 dark:text-neutral-300 leading-relaxed font-medium">
           Python, Pandas, SQL, R, PyTorch, Scikit-learn, Tableau, PowerBI, Git
         </p>
@@ -47,44 +46,30 @@ export default function Home() {
 
         {/* Connect Column */}
         <div>
-          <h3 className="text-xs font-sans font-bold text-neutral-400 uppercase tracking-widest mb-4">
-            Connect
-          </h3>
+          <SectionHeader title="Connect" />
           <ul className="flex flex-col gap-2">
             <li>
-              <ObfuscatedEmail className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all cursor-pointer" />
+              <ObfuscatedEmail className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all cursor-pointer block w-fit" />
             </li>
           </ul>
         </div>
 
         {/* Work Column */}
         <div>
-          <h3 className="text-xs font-sans font-bold text-neutral-400 uppercase tracking-widest mb-4">
-            Work
-          </h3>
+          <SectionHeader title="Work" />
           <ul className="flex flex-col gap-2">
             <li>
               <CvTooltip />
             </li>
             <li>
-              <Link
-                href="https://www.linkedin.com/in/giorgio-vanini-8627123a4/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all"
-              >
+              <SocialLink href="https://www.linkedin.com/in/giorgio-vanini-8627123a4/">
                 LinkedIn
-              </Link>
+              </SocialLink>
             </li>
             <li>
-              <Link
-                href="https://github.com/sakn0m"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg border-b border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 transition-all"
-              >
+              <SocialLink href="https://github.com/sakn0m">
                 GitHub
-              </Link>
+              </SocialLink>
             </li>
           </ul>
         </div>
