@@ -20,8 +20,6 @@
     body {
         @apply antialiased transition-colors duration-500 bg-white text-neutral-900;
 
-        /* Using the dark variant explicitly within the layer to ensure precedence */
-        &.dark,
         .dark & {
             @apply bg-neutral-950 text-neutral-50;
         }

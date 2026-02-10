@@ -18,3 +18,5 @@ Disallow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://giorgiovanini.eu/sitemap.xml

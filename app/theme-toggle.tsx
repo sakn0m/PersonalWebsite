@@ -8,15 +8,16 @@ export function ThemeToggle() {
     const { resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    // Prevents hydration mismatch
     useEffect(() => setMounted(true), []);
 
-    if (!mounted) return null;
+    if (!mounted) {
+        return <div className="w-11 h-11 rounded-full" aria-hidden="true" />;
+    }
 
     return (
         <button
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            className="group z-50 cursor-pointer p-2 rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors relative w-10 h-10 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-200 dark:focus-visible:ring-neutral-700"
+            className="group cursor-pointer p-2.5 rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors relative w-11 h-11 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950"
             aria-label="Toggle Dark Mode"
         >
             <Sun className="w-5 h-5 absolute transition-all duration-500 rotate-0 scale-100 dark:-rotate-90 dark:scale-0 text-amber-500" />
