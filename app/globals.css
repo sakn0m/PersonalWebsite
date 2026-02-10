@@ -12,9 +12,19 @@
 
 @layer base {
 
+    /* Allow scrolling but hide the visual scrollbar for a clean look */
     html,
     body {
         @apply h-full;
+        /* Firefox */
+        scrollbar-width: none;
+        /* IE and Edge */
+        -ms-overflow-style: none;
+    }
+    /* Chrome, Safari and Opera */
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none;
     }
 
     body {

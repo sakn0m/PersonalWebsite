@@ -63,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${garamond.variable} font-serif`}>
+      <body className={`${garamond.variable} font-serif antialiased transition-colors duration-500`}>
         <Providers>{children}</Providers>
       </body>
     </html>
