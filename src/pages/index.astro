@@ -136,6 +136,9 @@ const articles = [
 
   fitHeroName();
   window.addEventListener('resize', fitHeroName);
+  if (document.fonts) {
+    document.fonts.ready.then(fitHeroName);
+  }
 </script>
 
 <style>
