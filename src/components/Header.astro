@@ -1,0 +1,190 @@
+---
+const navLinks = [
+  { label: 'About', href: '/#about' },
+  {label: "Projects", href: '/#projects' },
+  { label: 'Writing', href: '/#writing' },
+  { label: 'Connect', href: '/#connect' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="header-logo">GV</a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <button
+        class="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-list">
+        {navLinks.map(link => (
+          <li><a href={link.href} class="nav-link">{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('nav-open');
+      toggle.classList.toggle('is-active');
+    });
+
+    // Close menu when clicking a link on mobile
+    const links = menu.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('nav-open');
+        toggle.classList.remove('is-active');
+      });
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    background-color: var(--ink);
+    border-bottom: 3px solid var(--eu-blue);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5rem;
+  }
+
+  .header-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--paper);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 3px solid var(--gold);
+    padding: 0.1rem 0.45rem;
+    line-height: 1;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--paper);
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .nav-link:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  /* BURGER MENU ANIMATION */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 38px;
+    height: 38px;
+    position: relative;
+    z-index: 101;
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--paper);
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* Burger to X transform */
+  .nav-toggle.is-active .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background-color: var(--gold);
+  }
+
+  .nav-toggle.is-active .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.is-active .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background-color: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-list {
+      position: absolute;
+      top: 3.5rem;
+      left: 0;
+      right: 0;
+      background-color: var(--ink);
+      border-bottom: 3px solid var(--eu-blue);
+      flex-direction: column;
+      padding: var(--space-md);
+      gap: var(--space-sm);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
+
+    .nav-list.nav-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+  }
+</style>

@@ -1,0 +1,618 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    number: '01',
+    title: 'Bombing Iran Won\'t Free It',
+    tag: 'Geopolitica',
+    date: 'March 2026',
+    href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
+  },
+];
+
+const projects = [
+  {
+    name: 'Expert AI Project',
+    description: 'NLP project for expert.ai built during the LUISS Grand Challenge course.',
+    tech: 'Jupyter',
+    href: 'https://github.com/sakn0m/expert_ai_project_LUISS',
+  },
+  {
+    name: 'SNA Project',
+    description: 'Social Network Analysis research and visualisation.',
+    tech: 'Jupyter',
+    href: 'https://github.com/sakn0m/SNA_Project',
+  },
+  {
+    name: 'S&P 500 Predictor',
+    description: 'ML model predicting S&P 500 movements and top-performing stocks in the short term.',
+    tech: 'Python / ML',
+    href: 'https://github.com/sakn0m/S-P500-Predictor',
+  },
+  {
+    name: 'Personal Website',
+    description: 'This very site — brutalist portfolio built with Astro.',
+    tech: 'Astro / CSS',
+    href: 'https://github.com/sakn0m/PersonalWebsite',
+  },
+];
+---
+
+<BaseLayout title="Giorgio Vanini | AI, Management & Data Analysis">
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <h1 class="hero-name">
+        <span class="name-first">Giorgio</span>
+        <span class="name-last">Vanini</span>
+      </h1>
+      <p class="hero-tagline">AI, Management & Data Analysis</p>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about section-paper" id="about">
+    <div class="about-inner container">
+      <div class="about-prose">
+        <h2 class="section-title">About</h2>
+        <p>
+          Second-year student at LUISS Guido Carli, pursuing a BSc in AI &amp; Management.
+          My academic focus lies in data analysis, machine learning applications, and
+          digital transformation in management.
+        </p>
+        <p>
+          Beyond my studies, I am deeply interested in European politics and geopolitics,
+          frequently writing about the intersection of technology and sovereignty at 
+          <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="inline-link">jojo.news</a>.
+          I believe in open-source software and the democratic governance of AI.
+        </p>
+      </div>
+      <aside class="about-facts">
+        <dl class="facts-list">
+          <div class="fact">
+            <dt>Location</dt>
+            <dd>Rome, Italy 🇮🇹🇪🇺</dd>
+          </div>
+          <div class="fact">
+            <dt>University</dt>
+            <dd>LUISS Guido Carli</dd>
+          </div>
+          <div class="fact">
+            <dt>Programme</dt>
+            <dd>BSc AI &amp; Management</dd>
+          </div>
+          <div class="fact">
+            <dt>Languages</dt>
+            <dd>IT / EN / FR</dd>
+          </div>
+          <div class="fact">
+            <dt>Focus</dt>
+            <dd>AI / Data Analysis</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="projects section-blue" id="projects">
+    <div class="projects-inner container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid" id="project-grid">
+        {projects.map(project => (
+          <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-card">
+            <span class="project-tech">{project.tech}</span>
+            <span class="project-name">{project.name}</span>
+            <span class="project-desc">{project.description}</span>
+            <span class="project-arrow">&rarr;</span>
+          </a>
+        ))}
+      </div>
+      <button class="show-more-btn" id="show-more-btn" type="button">Show all projects</button>
+      <a href="https://github.com/sakn0m" target="_blank" rel="noopener noreferrer" class="all-projects-link">All projects on GitHub &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ═══ RECENT WRITING ═══ -->
+  <section class="writing section-ink" id="writing">
+    <div class="writing-inner container">
+      <h2 class="section-title">Recent Writing</h2>
+      <ol class="article-list">
+        {articles.map(article => (
+          <li class="article-item">
+            <a href={article.href} target="_blank" rel="noopener noreferrer" class="article-link">
+              <span class="article-number">{article.number}</span>
+              <div class="article-info">
+                <span class="article-title">{article.title}</span>
+                <span class="article-meta">{article.tag} / {article.date}</span>
+              </div>
+              <span class="article-arrow">&rarr;</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a href="/blog" class="all-articles-link">All articles &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ═══ CONNECT ═══ -->
+  <section class="connect section-paper" id="connect">
+    <div class="connect-inner container">
+      <h2 class="section-title">Connect</h2>
+      <div class="connect-grid">
+        <a href="https://github.com/sakn0m" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Code</span>
+          <span class="connect-value">GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/giorgio-vanini-8627123a4/" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Work</span>
+          <span class="connect-value">LinkedIn</span>
+        </a>
+        <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Blog</span>
+          <span class="connect-value">jojo.news</span>
+        </a>
+        <a href="mailto:giorgio@giorgiovanini.eu" class="connect-card connect-card-primary">
+          <span class="connect-label">Email</span>
+          <span class="connect-value">Say Hello &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ═══ HERO ═══ */
+  .hero {
+    background-color: var(--eu-blue);
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    width: 100%;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--paper);
+    line-height: 0.85;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.04em;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(2.8rem, 11vw, 11rem);
+    margin-left: -0.04em;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--paper);
+    opacity: 0.75;
+    letter-spacing: 0.04em;
+  }
+
+  /* ═══ ABOUT ═══ */
+  .about {
+    padding: var(--space-xl) 0;
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+  }
+
+  .about .section-title {
+    color: var(--ink);
+  }
+
+  .about-prose {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-prose p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .inline-link {
+    color: var(--eu-blue);
+    font-weight: 700;
+    border-bottom: 2px solid var(--eu-blue);
+    transition: border-color 0.15s;
+  }
+
+  .inline-link:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  .about-facts {
+    border: 3px solid var(--ink);
+    padding: var(--space-md);
+  }
+
+  .facts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .fact dt {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--eu-blue);
+    margin-bottom: 0.1rem;
+  }
+
+  .fact dd {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  /* ═══ WRITING ═══ */
+  .writing {
+    padding: var(--space-xl) 0;
+  }
+
+  .writing .section-title {
+    color: var(--paper);
+  }
+
+  .article-list {
+    counter-reset: none;
+  }
+
+  .article-item {
+    border-bottom: 1px solid rgba(245, 240, 232, 0.12);
+  }
+
+  .article-item:first-child {
+    border-top: 1px solid rgba(245, 240, 232, 0.12);
+  }
+
+  .article-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    transition: background-color 0.15s;
+  }
+
+  .article-link:hover {
+    background-color: rgba(245, 240, 232, 0.03);
+  }
+
+  .article-number {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--eu-light);
+    min-width: 3rem;
+  }
+
+  .article-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--paper);
+    letter-spacing: -0.01em;
+  }
+
+  .article-meta {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.4;
+  }
+
+  .article-arrow {
+    font-size: 1.25rem;
+    opacity: 0.2;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  .article-link:hover .article-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .all-articles-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--eu-light);
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .all-articles-link:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  /* ═══ PROJECTS ═══ */
+  .projects {
+    padding: var(--space-xl) 0;
+  }
+
+  .projects .section-title {
+    color: var(--paper);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: 3px;
+  }
+
+  .project-card {
+    border: 3px solid var(--paper);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: background-color 0.15s, color 0.15s;
+    position: relative;
+    min-width: 0;
+  }
+
+  .project-card:hover {
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+
+  .project-card:hover .project-tech {
+    color: var(--eu-blue);
+  }
+
+  .project-card:hover .project-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .project-tech {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    transition: color 0.15s;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    opacity: 0.7;
+  }
+
+  .project-arrow {
+    font-size: 1.25rem;
+    opacity: 0.3;
+    margin-top: auto;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  .all-projects-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--paper);
+    opacity: 0.75;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s, opacity 0.15s;
+  }
+
+  .all-projects-link:hover {
+    opacity: 1;
+    border-bottom-color: var(--gold);
+  }
+
+  .show-more-btn {
+    display: none;
+    margin-top: var(--space-md);
+    background: none;
+    border: 2px solid var(--paper);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .show-more-btn:hover {
+    background-color: var(--paper);
+    color: var(--eu-blue);
+  }
+
+  /* ═══ CONNECT ═══ */
+  .connect {
+    padding: var(--space-xl) 0;
+  }
+
+  .connect .section-title {
+    color: var(--ink);
+  }
+
+  .connect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .connect-card {
+    border: 3px solid var(--ink);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .connect-card:hover {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .connect-card:hover .connect-label {
+    color: var(--eu-light);
+  }
+
+  .connect-label {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--eu-blue);
+    transition: color 0.15s;
+  }
+
+  .connect-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .connect-card-primary {
+    background-color: var(--eu-blue);
+    color: var(--paper);
+    border-color: var(--eu-blue);
+  }
+
+  .connect-card-primary .connect-label {
+    color: var(--gold);
+  }
+
+  .connect-card-primary:hover {
+    background-color: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .connect-card-primary:hover .connect-label {
+    color: var(--ink);
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 40vh;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+      max-height: calc(3 * 9.5rem);
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      transition: max-height 0.4s ease;
+    }
+
+    .project-grid.expanded {
+      max-height: 2000px;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .show-more-btn {
+      display: inline-block;
+    }
+
+    .show-more-btn.hidden {
+      display: none;
+    }
+
+    .connect-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .connect-value {
+      font-size: 0.95rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .article-number {
+      font-size: 1.5rem;
+      min-width: 2.5rem;
+    }
+
+    .article-title {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('show-more-btn');
+  const grid = document.getElementById('project-grid');
+  if (btn && grid) {
+    btn.addEventListener('click', () => {
+      grid.classList.add('expanded');
+      btn.classList.add('hidden');
+    });
+  }
+</script>
