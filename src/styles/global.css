@@ -80,6 +80,45 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+/* === LIGHT MODE === */
+
+html[data-theme="light"] body {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+html[data-theme="light"] .section-ink {
+  background-color: #E8E3D8;
+  color: var(--ink);
+  border-top: var(--border-thick);
+}
+
+html[data-theme="light"] .ticker {
+  border-top-color: var(--paper);
+  border-bottom-color: var(--paper);
+}
+
+/* === ENTRANCE ANIMATIONS === */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* === UTILITY === */
 
 .section-ink {
