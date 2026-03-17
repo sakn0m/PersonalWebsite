@@ -587,16 +587,18 @@ const projects = [
       font-size: 2rem;
     }
 
-    .article-number {
-      font-size: 1.5rem;
-      min-width: 2.5rem;
-    }
-
     .article-title {
       font-size: 1rem;
     }
 
     /* Disable hover on mobile, use scroll-focus instead */
+    .article-item:hover {
+      border-left-color: transparent;
+    }
+
+    .article-item.scroll-focus {
+      border-left-color: var(--gold);
+    }
     .project-card:hover {
       background-color: transparent;
       color: inherit;
@@ -652,7 +654,7 @@ const projects = [
 
   // Scroll-focus highlight on mobile — only the single closest card to center
   if (window.matchMedia('(max-width: 768px)').matches) {
-    const cards = document.querySelectorAll('.project-card, .connect-card');
+    const cards = document.querySelectorAll('.project-card, .connect-card, .article-item');
     let current = null;
     const update = () => {
       const center = window.innerHeight / 2;
