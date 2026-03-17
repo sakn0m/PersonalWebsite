@@ -31,18 +31,6 @@ const projects = [
     href: 'https://github.com/sakn0m/S-P500-Predictor',
   },
   {
-    name: 'Calendar Fixer',
-    description: 'Cleans .ics files by removing useless events — built for LUISS timetables.',
-    tech: 'Swift / Python / C#',
-    href: 'https://github.com/sakn0m/CalendarFixer',
-  },
-  {
-    name: 'Moodle Downloader',
-    description: 'Chromium extension for bulk-downloading files from LUISS Moodle pages.',
-    tech: 'JavaScript / HTML',
-    href: 'https://github.com/sakn0m/LuissMoodleDownloader',
-  },
-  {
     name: 'Personal Website',
     description: 'This very site — brutalist portfolio built with Astro.',
     tech: 'Astro / CSS',
@@ -121,6 +109,7 @@ const projects = [
           </a>
         ))}
       </div>
+      <a href="https://github.com/sakn0m" target="_blank" rel="noopener noreferrer" class="all-projects-link">All projects on GitHub &rarr;</a>
     </div>
   </section>
 
@@ -440,6 +429,24 @@ const projects = [
     opacity: 0.3;
     margin-top: auto;
     transition: opacity 0.15s, transform 0.15s;
+  }
+
+  .all-projects-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--paper);
+    opacity: 0.75;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s, opacity 0.15s;
+  }
+
+  .all-projects-link:hover {
+    opacity: 1;
+    border-bottom-color: var(--gold);
   }
 
   /* ═══ CONNECT ═══ */
