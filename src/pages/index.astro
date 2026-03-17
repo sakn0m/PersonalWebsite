@@ -77,6 +77,23 @@ const projects = [
     </div>
   </section>
 
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="projects section-blue" id="projects">
+    <div class="projects-inner container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid">
+        {projects.map(project => (
+          <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-card">
+            <span class="project-tech">{project.tech}</span>
+            <span class="project-name">{project.name}</span>
+            <span class="project-desc">{project.description}</span>
+            <span class="project-arrow">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ RECENT WRITING ═══ -->
   <section class="writing section-ink" id="writing">
     <div class="writing-inner container">
@@ -96,23 +113,6 @@ const projects = [
         ))}
       </ol>
       <a href="/blog" class="all-articles-link">All articles &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ═══ PROJECTS ═══ -->
-  <section class="projects section-blue" id="projects">
-    <div class="projects-inner container">
-      <h2 class="section-title">Projects</h2>
-      <div class="project-grid">
-        {projects.map(project => (
-          <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-card">
-            <span class="project-tech">{project.tech}</span>
-            <span class="project-name">{project.name}</span>
-            <span class="project-desc">{project.description}</span>
-            <span class="project-arrow">&rarr;</span>
-          </a>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -352,7 +352,7 @@ const projects = [
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: 3px;
   }
 
@@ -364,6 +364,7 @@ const projects = [
     gap: 0.4rem;
     transition: background-color 0.15s, color 0.15s;
     position: relative;
+    min-width: 0;
   }
 
   .project-card:hover {
@@ -395,6 +396,7 @@ const projects = [
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
   }
 
   .project-desc {
