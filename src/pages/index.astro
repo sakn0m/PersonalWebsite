@@ -87,15 +87,28 @@ const articles = [
     </div>
   </section>
 
-  <!-- ═══ SPLIT PANEL ═══ -->
-  <section class="split" aria-label="Next steps">
-    <div class="split-left">
-      <span class="split-label">Paris / 2027</span>
-      <p class="split-text">Sciences Po / HEC / ESSEC</p>
-    </div>
-    <div class="split-right">
-      <span class="split-label">EU Policy</span>
-      <p class="split-text">Istituzioni europee / Think tank / Schuman Traineeship</p>
+  <!-- ═══ CONNECT ═══ -->
+  <section class="connect section-paper" id="connect">
+    <div class="connect-inner container">
+      <h2 class="section-title">Connect</h2>
+      <div class="connect-grid">
+        <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Blog</span>
+          <span class="connect-value">jojo.news</span>
+        </a>
+        <a href="https://github.com/sakn0m" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Code</span>
+          <span class="connect-value">github/sakn0m</span>
+        </a>
+        <a href="https://www.linkedin.com/in/giorgio-vanini-8627123a4/" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Work</span>
+          <span class="connect-value">LinkedIn</span>
+        </a>
+        <a href="mailto:giorgio@giorgiovanini.eu" class="connect-card">
+          <span class="connect-label">Email</span>
+          <span class="connect-value">giorgio@giorgiovanini.eu</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -321,38 +334,54 @@ const articles = [
     border-bottom-color: var(--gold);
   }
 
-  /* ═══ SPLIT PANEL ═══ */
-  .split {
+  /* ═══ CONNECT ═══ */
+  .connect {
+    padding: var(--space-xl) 0;
+  }
+
+  .connect .section-title {
+    color: var(--ink);
+  }
+
+  .connect-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 3px;
   }
 
-  .split-left {
-    background-color: var(--eu-dark);
-    padding: var(--space-xl) var(--space-md);
+  .connect-card {
+    border: 3px solid var(--ink);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: background-color 0.15s, color 0.15s;
   }
 
-  .split-right {
-    background-color: var(--eu-blue);
-    padding: var(--space-xl) var(--space-md);
+  .connect-card:hover {
+    background-color: var(--ink);
+    color: var(--paper);
   }
 
-  .split-label {
+  .connect-card:hover .connect-label {
+    color: var(--eu-light);
+  }
+
+  .connect-label {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--eu-blue);
+    transition: color 0.15s;
+  }
+
+  .connect-value {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    color: var(--paper);
-    display: block;
-    margin-bottom: var(--space-xs);
-    letter-spacing: -0.02em;
-  }
-
-  .split-text {
-    font-size: 0.85rem;
-    color: var(--paper);
-    opacity: 0.7;
-    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 
   /* ═══ RESPONSIVE ═══ */
@@ -366,7 +395,7 @@ const articles = [
       gap: var(--space-md);
     }
 
-    .split {
+    .connect-grid {
       grid-template-columns: 1fr;
     }
 
