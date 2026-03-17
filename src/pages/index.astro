@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    number: '01',
+    title: 'Bombing Iran Won\'t Free It',
+    tag: 'Geopolitica',
+    date: 'March 2026',
+    href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
+  },
+];
+---
+
+<BaseLayout title="Giorgio Vanini | AI, Politics, Europe">
+  <!-- ═══ HERO ═══ -->
+  <section class="hero section-blue">
+    <div class="hero-inner">
+      <div class="hero-stars" aria-hidden="true">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
+      <h1 class="hero-name" id="hero-name">Giorgio Vanini</h1>
+      <p class="hero-tagline">AI & European Politics — Roma</p>
+      <div class="hero-links">
+        <a href="#about">About</a>
+        <a href="#writing">Writing</a>
+        <a href="/blog">Blog</a>
+        <a href="mailto:giorgio@giorgiovanini.eu">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about section-paper" id="about">
+    <div class="about-inner container">
+      <div class="about-prose">
+        <h2 class="section-title">About</h2>
+        <p>
+          Second-year student at LUISS Guido Carli, pursuing a BSc in AI &amp; Management.
+          I write about artificial intelligence, European politics, geopolitics, and
+          digital sovereignty at <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="inline-link">jojo.news</a>.
+        </p>
+        <p>
+          Committed European federalist. I believe in open-source software,
+          democratic governance of AI, and a sovereign digital Europe.
+          When I am not studying or writing, I am probably reading about
+          privacy policy or tinkering with something on GitHub.
+        </p>
+      </div>
+      <aside class="about-facts">
+        <dl class="facts-list">
+          <div class="fact">
+            <dt>Location</dt>
+            <dd>Roma, Italia</dd>
+          </div>
+          <div class="fact">
+            <dt>University</dt>
+            <dd>LUISS Guido Carli</dd>
+          </div>
+          <div class="fact">
+            <dt>Programme</dt>
+            <dd>BSc AI &amp; Management</dd>
+          </div>
+          <div class="fact">
+            <dt>Languages</dt>
+            <dd>IT · EN · FR</dd>
+          </div>
+          <div class="fact">
+            <dt>Focus</dt>
+            <dd>AI Policy · Geopolitics</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══ RECENT WRITING ═══ -->
+  <section class="writing section-ink" id="writing">
+    <div class="writing-inner container">
+      <h2 class="section-title">Recent Writing</h2>
+      <ol class="article-list">
+        {articles.map(article => (
+          <li class="article-item">
+            <a href={article.href} target="_blank" rel="noopener noreferrer" class="article-link">
+              <span class="article-number">{article.number}</span>
+              <div class="article-info">
+                <span class="article-title">{article.title}</span>
+                <span class="article-meta">{article.tag} — {article.date}</span>
+              </div>
+              <span class="article-arrow">→</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a href="/blog" class="all-articles-link">All articles →</a>
+    </div>
+  </section>
+
+  <!-- ═══ SPLIT PANEL ═══ -->
+  <section class="split" aria-label="Next steps">
+    <div class="split-left">
+      <span class="split-label">Paris · 2027</span>
+      <p class="split-text">Sciences Po · HEC · ESSEC</p>
+    </div>
+    <div class="split-right">
+      <span class="split-label">EU Policy</span>
+      <p class="split-text">Istituzioni europee · Think tank · Schuman Traineeship</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function fitHeroName() {
+    const el = document.getElementById('hero-name');
+    if (!el) return;
+
+    const container = el.parentElement;
+    if (!container) return;
+
+    const maxWidth = container.clientWidth - 64; // padding
+    let size = 20;
+    el.style.fontSize = size + 'px';
+
+    while (el.scrollWidth <= maxWidth && size < 300) {
+      size += 4;
+      el.style.fontSize = size + 'px';
+    }
+
+    // Step back
+    size -= 8;
+    el.style.fontSize = size + 'px';
+  }
+
+  fitHeroName();
+  window.addEventListener('resize', fitHeroName);
+</script>
+
+<style>
+  /* ═══ HERO ═══ */
+  .hero {
+    background-color: var(--eu-blue);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md) var(--space-lg);
+    width: 100%;
+  }
+
+  .hero-stars {
+    color: var(--gold);
+    font-size: 1.25rem;
+    letter-spacing: 0.4em;
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    color: var(--paper);
+    line-height: 0.9;
+    margin-bottom: var(--space-md);
+    white-space: nowrap;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--paper);
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-links {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .hero-links a {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--paper);
+    border: 2px solid var(--paper);
+    padding: 0.5rem 1.25rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .hero-links a:hover {
+    background-color: var(--paper);
+    color: var(--eu-blue);
+  }
+
+  /* ═══ ABOUT ═══ */
+  .about {
+    padding: var(--space-xl) 0;
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    letter-spacing: 0.02em;
+  }
+
+  .about .section-title {
+    color: var(--ink);
+  }
+
+  .about-prose {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .about-prose p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .inline-link {
+    color: var(--eu-blue);
+    font-weight: 700;
+    border-bottom: 2px solid var(--eu-blue);
+    transition: border-color 0.2s;
+  }
+
+  .inline-link:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  .about-facts {
+    border: 3px solid var(--ink);
+    padding: var(--space-md);
+  }
+
+  .facts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .fact dt {
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--eu-blue);
+    margin-bottom: 0.15rem;
+  }
+
+  .fact dd {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /* ═══ WRITING ═══ */
+  .writing {
+    padding: var(--space-xl) 0;
+  }
+
+  .writing .section-title {
+    color: var(--paper);
+  }
+
+  .article-list {
+    counter-reset: none;
+  }
+
+  .article-item {
+    border-bottom: 1px solid rgba(245, 240, 232, 0.15);
+  }
+
+  .article-item:first-child {
+    border-top: 1px solid rgba(245, 240, 232, 0.15);
+  }
+
+  .article-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    transition: background-color 0.2s;
+  }
+
+  .article-link:hover {
+    background-color: rgba(245, 240, 232, 0.04);
+  }
+
+  .article-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--eu-light);
+    min-width: 3rem;
+  }
+
+  .article-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: var(--paper);
+  }
+
+  .article-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+  }
+
+  .article-arrow {
+    font-size: 1.5rem;
+    opacity: 0.3;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .article-link:hover .article-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .all-articles-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--eu-light);
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .all-articles-link:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  /* ═══ SPLIT PANEL ═══ */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split-left {
+    background-color: var(--eu-dark);
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .split-right {
+    background-color: var(--eu-blue);
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .split-label {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--paper);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .split-text {
+    font-size: 1rem;
+    color: var(--paper);
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 50vh;
+    }
+
+    .hero-links a {
+      font-size: 0.7rem;
+      padding: 0.4rem 1rem;
+    }
+
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .split {
+      grid-template-columns: 1fr;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .article-number {
+      font-size: 1.5rem;
+      min-width: 2.5rem;
+    }
+
+    .article-title {
+      font-size: 1rem;
+    }
+  }
+</style>

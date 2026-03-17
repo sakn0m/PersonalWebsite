@@ -1,27 +1,16 @@
 {
   "name": "personal-website",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "lucide-react": "latest",
-    "next-themes": "latest"
-  },
-  "devDependencies": {
-    "typescript": "latest",
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
-    "@tailwindcss/postcss": "latest",
-    "autoprefixer": "latest"
+    "astro": "^5.7.10",
+    "@fontsource/archivo-black": "^5.0.0",
+    "@fontsource/space-grotesk": "^5.0.0"
   }
 }
