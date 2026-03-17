@@ -180,7 +180,7 @@ const projects = [
   .hero-name {
     font-family: var(--font-display);
     font-weight: 800;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: var(--paper);
     line-height: 0.95;
     letter-spacing: -0.04em;
@@ -542,7 +542,20 @@ const projects = [
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 768px) {
     .hero {
-      min-height: 40vh;
+      min-height: 100svh;
+      align-items: center;
+    }
+
+    .hero-name {
+      font-size: 13vw;
+      line-height: 0.9;
+      margin-left: 0;
+    }
+
+    .hero-tagline {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      margin-top: var(--space-sm);
     }
 
 
