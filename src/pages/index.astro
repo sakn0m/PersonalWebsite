@@ -10,6 +10,15 @@ const articles = [
     href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
   },
 ];
+
+const projects = [
+  {
+    name: 'PersonalWebsite',
+    description: 'This very site — brutalist portfolio built with Astro.',
+    tech: 'Astro / CSS',
+    href: 'https://github.com/sakn0m/PersonalWebsite',
+  },
+];
 ---
 
 <BaseLayout title="Giorgio Vanini | AI, Management & Data Analysis">
@@ -90,22 +99,39 @@ const articles = [
     </div>
   </section>
 
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="projects section-blue" id="projects">
+    <div class="projects-inner container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid">
+        {projects.map(project => (
+          <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-card">
+            <span class="project-tech">{project.tech}</span>
+            <span class="project-name">{project.name}</span>
+            <span class="project-desc">{project.description}</span>
+            <span class="project-arrow">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ CONNECT ═══ -->
   <section class="connect section-paper" id="connect">
     <div class="connect-inner container">
       <h2 class="section-title">Connect</h2>
       <div class="connect-grid">
-        <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="connect-card">
-          <span class="connect-label">Blog</span>
-          <span class="connect-value">jojo.news</span>
-        </a>
         <a href="https://github.com/sakn0m" target="_blank" rel="noopener noreferrer" class="connect-card">
           <span class="connect-label">Code</span>
-          <span class="connect-value">github/sakn0m</span>
+          <span class="connect-value">GitHub</span>
         </a>
         <a href="https://www.linkedin.com/in/giorgio-vanini-8627123a4/" target="_blank" rel="noopener noreferrer" class="connect-card">
           <span class="connect-label">Work</span>
           <span class="connect-value">LinkedIn</span>
+        </a>
+        <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-label">Blog</span>
+          <span class="connect-value">jojo.news</span>
         </a>
         <a href="mailto:giorgio@giorgiovanini.eu" class="connect-card connect-card-primary">
           <span class="connect-label">Email</span>
@@ -315,6 +341,75 @@ const articles = [
     border-bottom-color: var(--gold);
   }
 
+  /* ═══ PROJECTS ═══ */
+  .projects {
+    padding: var(--space-xl) 0;
+  }
+
+  .projects .section-title {
+    color: var(--paper);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3px;
+  }
+
+  .project-card {
+    border: 3px solid var(--paper);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: background-color 0.15s, color 0.15s;
+    position: relative;
+  }
+
+  .project-card:hover {
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+
+  .project-card:hover .project-tech {
+    color: var(--eu-blue);
+  }
+
+  .project-card:hover .project-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .project-tech {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    transition: color 0.15s;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    opacity: 0.7;
+  }
+
+  .project-arrow {
+    font-size: 1.25rem;
+    opacity: 0.3;
+    margin-top: auto;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
   /* ═══ CONNECT ═══ */
   .connect {
     padding: var(--space-xl) 0;
@@ -401,6 +496,10 @@ const articles = [
     .about-inner {
       grid-template-columns: 1fr;
       gap: var(--space-md);
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
     }
 
     .connect-grid {
