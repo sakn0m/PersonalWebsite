@@ -104,9 +104,9 @@ const articles = [
           <span class="connect-label">Work</span>
           <span class="connect-value">LinkedIn</span>
         </a>
-        <a href="mailto:giorgio@giorgiovanini.eu" class="connect-card">
+        <a href="mailto:giorgio@giorgiovanini.eu" class="connect-card connect-card-primary">
           <span class="connect-label">Email</span>
-          <span class="connect-value">giorgio@giorgiovanini.eu</span>
+          <span class="connect-value">Say Hello &rarr;</span>
         </a>
       </div>
     </div>
@@ -358,7 +358,7 @@ const articles = [
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    transition: background-color 0.15s, color 0.15s;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
   }
 
   .connect-card:hover {
@@ -387,6 +387,26 @@ const articles = [
     letter-spacing: -0.01em;
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .connect-card-primary {
+    background-color: var(--eu-blue);
+    color: var(--paper);
+    border-color: var(--eu-blue);
+  }
+
+  .connect-card-primary .connect-label {
+    color: var(--gold);
+  }
+
+  .connect-card-primary:hover {
+    background-color: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .connect-card-primary:hover .connect-label {
+    color: var(--ink);
   }
 
   /* ═══ RESPONSIVE ═══ */
