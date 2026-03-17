@@ -121,16 +121,30 @@ const articles = [
     const container = el.parentElement;
     if (!container) return;
 
-    const maxWidth = container.clientWidth - 64;
-    let size = 20;
-    el.style.fontSize = size + 'px';
+    // Reset styles to calculate natural width
+    el.style.whiteSpace = 'nowrap';
+    el.style.fontSize = '20px';
 
-    while (el.scrollWidth <= maxWidth && size < 300) {
-      size += 4;
-      el.style.fontSize = size + 'px';
+    const maxWidth = container.clientWidth - (window.innerWidth <= 768 ? 32 : 64);
+    let size = 20;
+
+    // If screen is very small, we might want to stack the name instead of making it tiny
+    if (window.innerWidth <= 480 && el.textContent.includes(' ')) {
+        el.innerHTML = el.textContent.replace(' ', '<br>');
+        el.style.whiteSpace = 'normal';
+        // recalculate size for broken text
+        while (el.scrollWidth <= maxWidth && size < 120) { // Limit max size on mobile
+          size += 2;
+          el.style.fontSize = size + 'px';
+        }
+    } else {
+        while (el.scrollWidth <= maxWidth && size < 300) {
+          size += 4;
+          el.style.fontSize = size + 'px';
+        }
     }
 
-    size -= 8;
+    size -= (window.innerWidth <= 768 ? 4 : 8);
     el.style.fontSize = size + 'px';
   }
 
@@ -167,6 +181,7 @@ const articles = [
     line-height: 0.9;
     margin-bottom: var(--space-sm);
     white-space: nowrap;
+    letter-spacing: -0.02em;
   }
 
   .hero-tagline {
@@ -413,6 +428,11 @@ const articles = [
   @media (max-width: 768px) {
     .hero {
       min-height: 40vh;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
 
     .about-inner {
