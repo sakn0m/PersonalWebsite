@@ -45,7 +45,7 @@ const projects = [
 ];
 ---
 
-<BaseLayout title="Giorgio Vanini | AI, Management & Data Analysis">
+<BaseLayout title="Giorgio Vanini | AI · Data · Politics">
   <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-inner container">
@@ -53,7 +53,7 @@ const projects = [
         <span class="name-first">Giorgio</span>
         <span class="name-last">Vanini</span>
       </h1>
-      <p class="hero-tagline">AI, Management & Data Analysis</p>
+      <p class="hero-tagline">AI · Data · Politics</p>
     </div>
   </section>
 
@@ -94,7 +94,7 @@ const projects = [
           </div>
           <div class="fact">
             <dt>Focus</dt>
-            <dd>AI / Data Analysis</dd>
+            <dd>AI / Data / Politics</dd>
           </div>
         </dl>
       </aside>
@@ -188,10 +188,9 @@ const projects = [
   .hero-name {
     font-family: var(--font-display);
     font-weight: 800;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: var(--paper);
-    line-height: 0.85;
-    margin-bottom: var(--space-sm);
+    line-height: 0.95;
     letter-spacing: -0.04em;
     display: flex;
     flex-direction: column;
@@ -206,6 +205,7 @@ const projects = [
     color: var(--paper);
     opacity: 0.75;
     letter-spacing: 0.04em;
+    margin-top: var(--space-sm);
   }
 
   /* ═══ ABOUT ═══ */
@@ -555,10 +555,6 @@ const projects = [
       min-height: 40vh;
     }
 
-    .hero-tagline {
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
 
     .about-inner {
       grid-template-columns: 1fr;
