@@ -80,24 +80,6 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-/* === LIGHT MODE === */
-
-html[data-theme="light"] body {
-  background-color: var(--paper);
-  color: var(--ink);
-}
-
-html[data-theme="light"] .section-ink {
-  background-color: #E8E3D8;
-  color: var(--ink);
-  border-top: var(--border-thick);
-}
-
-html[data-theme="light"] .ticker {
-  border-top-color: var(--paper);
-  border-bottom-color: var(--paper);
-}
-
 /* === ENTRANCE ANIMATIONS === */
 
 .fade-up {

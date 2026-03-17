@@ -26,10 +26,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="icon" href="/icon.svg" type="image/svg+xml" />
   <link rel="canonical" href={canonicalURL} />
 
-  <script is:inline>
-    const t = localStorage.getItem('theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
-  </script>
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="keywords" content="Giorgio Vanini, AI, Data Analysis, Management, LUISS, Geopolitics, European Politics" />
