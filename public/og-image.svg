@@ -1,35 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Main Paper Background -->
-  <rect width="1200" height="630" fill="#F5F0E8" />
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0052B4" />
   
-  <!-- Thick Ink Border for Brutalist feel -->
+  <!-- Data Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#0C0F1A" stroke-width="1.5" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" />
+  
+  <!-- Massive Typography: Shifted slightly left (to 130) while staying clear of the + box -->
+  <g transform="translate(130, 180)">
+    <text font-family="sans-serif" font-weight="900" font-size="160" fill="#F5F0E8" style="font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.9;">
+      <tspan x="0" y="0">GIORGIO</tspan>
+      <tspan x="180" y="150">VANINI</tspan>
+    </text>
+  </g>
+  
+  <!-- Tagline Box: High-contrast gold box on the right -->
+  <g transform="translate(480, 480)">
+    <rect width="660" height="90" fill="#FFD700" stroke="#0C0F1A" stroke-width="8" />
+    <text x="330" y="58" font-family="monospace" font-weight="700" font-size="32" fill="#0C0F1A" text-anchor="middle" style="font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">AI, Management &amp; Data Analysis</text>
+  </g>
+  
+  <!-- Brutalist Frame -->
   <rect x="20" y="20" width="1160" height="590" fill="none" stroke="#0C0F1A" stroke-width="12" />
   
-  <!-- Left Side: Yellow Square Logo (the GV element) -->
-  <g transform="translate(100, 165)">
-    <rect width="300" height="300" fill="#FFD700" stroke="#0C0F1A" stroke-width="8" />
-    <text x="150" y="200" font-family="sans-serif" font-weight="800" font-size="140" fill="#0C0F1A" text-anchor="middle" style="font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: 0.05em;">GV</text>
-  </g>
-  
-  <!-- Content Area -->
-  <g transform="translate(460, 200)">
-    <!-- Name -->
-    <text y="50" font-family="sans-serif" font-weight="900" font-size="80" fill="#0C0F1A" style="font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -0.02em;">Giorgio Vanini</text>
-    
-    <!-- Tagline Area -->
-    <rect y="80" width="650" height="80" fill="#0052B4" />
-    <text x="20" y="132" font-family="monospace" font-weight="700" font-size="32" fill="#F5F0E8" style="font-family: 'Space Mono', monospace; text-transform: uppercase;">AI, Management &amp; Data</text>
-    
-    <!-- Details -->
-    <g transform="translate(0, 220)">
-      <text y="0" font-family="monospace" font-size="24" fill="#0C0F1A" style="font-family: 'Space Mono', monospace; font-weight: 700;">→ BSc AI &amp; Management @ LUISS</text>
-      <text y="45" font-family="monospace" font-size="24" fill="#0C0F1A" style="font-family: 'Space Mono', monospace; font-weight: 700;">→ Focusing on Data Analysis &amp; ML</text>
-      <text y="90" font-family="monospace" font-size="24" fill="#0C0F1A" style="font-family: 'Space Mono', monospace; font-weight: 700;">→ Geopolitics / Tech Policy</text>
-    </g>
-  </g>
-  
-  <!-- Bottom Right Brand Element -->
-  <g transform="translate(1080, 580) rotate(-90)">
-    <text font-family="sans-serif" font-weight="900" font-size="20" fill="#0052B4" style="font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: 0.2em;">GIORGIOVANINI.EU</text>
-  </g>
+  <!-- Top-Left Accent: The "+" Box. Centered considering the frame border width. -->
+  <rect x="20" y="20" width="100" height="100" fill="#0C0F1A" />
+  <text x="67" y="67" font-family="sans-serif" font-weight="900" font-size="80" fill="#FFD700" text-anchor="middle" dominant-baseline="central" style="font-family: 'Syne', sans-serif;">+</text>
 </svg>
