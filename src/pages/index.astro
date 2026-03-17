@@ -609,6 +609,48 @@ const projects = [
     .article-title {
       font-size: 1rem;
     }
+
+    /* Disable hover on mobile, use scroll-focus instead */
+    .project-card:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+    .project-card:hover .project-tech { color: var(--gold); }
+    .project-card:hover .project-arrow { opacity: 0.3; transform: none; }
+
+    .connect-card:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+    .connect-card:hover .connect-label { color: var(--eu-blue); }
+
+    .connect-card-primary:hover {
+      background-color: var(--eu-blue);
+      color: var(--paper);
+      border-color: var(--eu-blue);
+    }
+    .connect-card-primary:hover .connect-label { color: var(--gold); }
+
+    /* Scroll-focus active states */
+    .project-card.scroll-focus {
+      background-color: var(--paper);
+      color: var(--ink);
+    }
+    .project-card.scroll-focus .project-tech { color: var(--eu-blue); }
+    .project-card.scroll-focus .project-arrow { opacity: 1; transform: translateX(4px); }
+
+    .connect-card.scroll-focus {
+      background-color: var(--ink);
+      color: var(--paper);
+    }
+    .connect-card.scroll-focus .connect-label { color: var(--eu-light); }
+
+    .connect-card-primary.scroll-focus {
+      background-color: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold);
+    }
+    .connect-card-primary.scroll-focus .connect-label { color: var(--ink); }
   }
 </style>
 
@@ -618,7 +660,31 @@ const projects = [
   if (btn && grid) {
     btn.addEventListener('click', () => {
       const expanded = grid.classList.toggle('expanded');
-      btn.textContent = expanded ? 'Show less ↑' : 'Show more projects';
+      btn.textContent = expanded ? 'Show less \u2191' : 'Show more projects';
     });
+  }
+
+  // Scroll-focus highlight on mobile — only the single closest card to center
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    const cards = document.querySelectorAll('.project-card, .connect-card');
+    let current = null;
+    const update = () => {
+      const center = window.innerHeight / 2;
+      let closest = null;
+      let minDist = Infinity;
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(cardCenter - center);
+        if (dist < minDist) { minDist = dist; closest = card; }
+      });
+      if (closest !== current) {
+        current?.classList.remove('scroll-focus');
+        closest?.classList.add('scroll-focus');
+        current = closest;
+      }
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 </script>
