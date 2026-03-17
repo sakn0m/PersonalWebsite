@@ -2,8 +2,7 @@
 const navLinks = [
   { label: 'About', href: '/#about' },
   { label: 'Writing', href: '/#writing' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: 'mailto:giorgio@giorgiovanini.eu' },
+  { label: 'Connect', href: '/#connect' },
 ];
 ---
 
@@ -37,6 +36,15 @@ const navLinks = [
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       menu.classList.toggle('nav-open');
+    });
+
+    // Close menu when clicking a link on mobile
+    const links = menu.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('nav-open');
+      });
     });
   }
 </script>
@@ -122,7 +130,6 @@ const navLinks = [
     }
 
     .nav-list {
-      display: none;
       position: absolute;
       top: 3.5rem;
       left: 0;
@@ -132,14 +139,25 @@ const navLinks = [
       flex-direction: column;
       padding: var(--space-md);
       gap: var(--space-sm);
+      /* Animation styles */
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
     }
 
     .nav-list.nav-open {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .nav-link {
       font-size: 0.85rem;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 0;
     }
   }
 </style>
