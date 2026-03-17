@@ -99,7 +99,7 @@ const projects = [
   <section class="projects section-blue" id="projects">
     <div class="projects-inner container">
       <h2 class="section-title">Projects</h2>
-      <div class="project-grid">
+      <div class="project-grid" id="project-grid">
         {projects.map(project => (
           <a href={project.href} target="_blank" rel="noopener noreferrer" class="project-card">
             <span class="project-tech">{project.tech}</span>
@@ -109,6 +109,7 @@ const projects = [
           </a>
         ))}
       </div>
+      <button class="show-more-btn" id="show-more-btn" type="button">Show all projects</button>
       <a href="https://github.com/sakn0m" target="_blank" rel="noopener noreferrer" class="all-projects-link">All projects on GitHub &rarr;</a>
     </div>
   </section>
@@ -449,6 +450,27 @@ const projects = [
     border-bottom-color: var(--gold);
   }
 
+  .show-more-btn {
+    display: none;
+    margin-top: var(--space-md);
+    background: none;
+    border: 2px solid var(--paper);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .show-more-btn:hover {
+    background-color: var(--paper);
+    color: var(--eu-blue);
+  }
+
   /* ═══ CONNECT ═══ */
   .connect {
     padding: var(--space-xl) 0;
@@ -539,6 +561,26 @@ const projects = [
 
     .project-grid {
       grid-template-columns: 1fr;
+      max-height: calc(3 * 9.5rem);
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      transition: max-height 0.4s ease;
+    }
+
+    .project-grid.expanded {
+      max-height: 2000px;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .show-more-btn {
+      display: inline-block;
+    }
+
+    .show-more-btn.hidden {
+      display: none;
     }
 
     .connect-grid {
@@ -563,3 +605,14 @@ const projects = [
     }
   }
 </style>
+
+<script>
+  const btn = document.getElementById('show-more-btn');
+  const grid = document.getElementById('project-grid');
+  if (btn && grid) {
+    btn.addEventListener('click', () => {
+      grid.classList.add('expanded');
+      btn.classList.add('hidden');
+    });
+  }
+</script>
