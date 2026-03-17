@@ -1,14 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { articles } from '../data/articles';
 
-const articles = [
-  {
-    title: 'Bombing Iran Won\'t Free It',
-    tag: 'Geopolitics',
-    date: 'March 2026',
-    href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
-  },
-];
+const recentArticles = articles.slice(0, 3);
 
 const projects = [
   {
@@ -124,7 +118,7 @@ const projects = [
     <div class="writing-inner container">
       <h2 class="section-title">Recent Writing</h2>
       <ol class="article-list">
-        {articles.map(article => (
+        {recentArticles.map(article => (
           <li class="article-item">
             <a href={article.href} target="_blank" rel="noopener noreferrer" class="article-link">
               <div class="article-info">
@@ -136,7 +130,7 @@ const projects = [
           </li>
         ))}
       </ol>
-      <a href="/blog" class="all-articles-link">All articles &rarr;</a>
+      <a href="/blog" class="all-articles-link">More articles &rarr;</a>
     </div>
   </section>
 
