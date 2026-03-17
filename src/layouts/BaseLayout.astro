@@ -12,8 +12,8 @@ interface Props {
 
 const {
   title,
-  description = 'Giorgio Vanini — AI, European politics, digital sovereignty.',
-  ogImage = '/og-image.png',
+  description = 'Giorgio Vanini — AI, Management, and Data Analysis student at LUISS.',
+  ogImage = '/og-image.svg',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -28,7 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="Giorgio Vanini, AI, European politics, digital sovereignty, LUISS, geopolitics" />
+  <meta name="keywords" content="Giorgio Vanini, AI, Data Analysis, Management, LUISS, Geopolitics, European Politics" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
