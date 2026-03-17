@@ -617,8 +617,8 @@ const projects = [
   const grid = document.getElementById('project-grid');
   if (btn && grid) {
     btn.addEventListener('click', () => {
-      grid.classList.add('expanded');
-      btn.classList.add('hidden');
+      const expanded = grid.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Show less ↑' : 'Show more projects';
     });
   }
 </script>
