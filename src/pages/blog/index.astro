@@ -3,9 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const articles = [
   {
-    number: '01',
     title: 'Bombing Iran Won\'t Free It',
-    tag: 'Geopolitica',
+    tag: 'Geopolitics',
     date: 'March 2026',
     href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
     external: true,
@@ -17,7 +16,7 @@ const articles = [
   <section class="blog-hero">
     <div class="container">
       <h1 class="blog-title">Writing</h1>
-      <p class="blog-subtitle">
+          <p class="blog-subtitle">
         Published on <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="blog-link">jojo.news</a>
       </p>
     </div>
@@ -34,7 +33,6 @@ const articles = [
               rel={article.external ? 'noopener noreferrer' : undefined}
               class="article-link"
             >
-              <span class="article-number">{article.number}</span>
               <div class="article-info">
                 <span class="article-title-text">{article.title}</span>
                 <span class="article-meta">{article.tag} / {article.date}{article.external ? ' ↗' : ''}</span>
@@ -45,9 +43,6 @@ const articles = [
         ))}
       </ol>
 
-      <p class="blog-note">
-        More articles at <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="inline-link">jojo.news</a>
-      </p>
     </div>
   </section>
 </BaseLayout>
@@ -65,14 +60,8 @@ const articles = [
     margin-bottom: var(--space-xs);
     letter-spacing: -0.02em;
   }
-
-  .blog-subtitle {
-    font-size: 1rem;
-    color: var(--paper);
-    opacity: 0.7;
-  }
-
-  .blog-link {
+  
+    .blog-link {
     font-weight: 700;
     border-bottom: 2px solid var(--gold);
   }
@@ -88,30 +77,28 @@ const articles = [
 
   .article-item {
     border-bottom: 1px solid rgba(245, 240, 232, 0.12);
+    border-left: 3px solid transparent;
+    transition: border-color 0.15s;
   }
 
   .article-item:first-child {
     border-top: 1px solid rgba(245, 240, 232, 0.12);
   }
 
+  .article-item:hover {
+    border-left-color: var(--gold);
+  }
+
   .article-link {
     display: flex;
     align-items: center;
     gap: var(--space-md);
-    padding: var(--space-md) 0;
+    padding: var(--space-md) var(--space-sm) var(--space-md) var(--space-sm);
     transition: background-color 0.15s;
   }
 
   .article-link:hover {
     background-color: rgba(245, 240, 232, 0.03);
-  }
-
-  .article-number {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 2.5rem;
-    color: var(--eu-light);
-    min-width: 4rem;
   }
 
   .article-info {
@@ -148,31 +135,9 @@ const articles = [
     transform: translateX(4px);
   }
 
-  .blog-note {
-    margin-top: var(--space-lg);
-    font-size: 0.8rem;
-    opacity: 0.4;
-  }
-
-  .inline-link {
-    color: var(--eu-light);
-    font-weight: 700;
-    border-bottom: 2px solid var(--eu-light);
-    transition: border-color 0.15s;
-  }
-
-  .inline-link:hover {
-    border-bottom-color: var(--gold);
-  }
-
   @media (max-width: 768px) {
     .blog-title {
       font-size: 2.5rem;
-    }
-
-    .article-number {
-      font-size: 2rem;
-      min-width: 3rem;
     }
 
     .article-title-text {

@@ -3,9 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const articles = [
   {
-    number: '01',
     title: 'Bombing Iran Won\'t Free It',
-    tag: 'Geopolitica',
+    tag: 'Geopolitics',
     date: 'March 2026',
     href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
   },
@@ -128,7 +127,6 @@ const projects = [
         {articles.map(article => (
           <li class="article-item">
             <a href={article.href} target="_blank" rel="noopener noreferrer" class="article-link">
-              <span class="article-number">{article.number}</span>
               <div class="article-info">
                 <span class="article-title">{article.title}</span>
                 <span class="article-meta">{article.tag} / {article.date}</span>
@@ -291,30 +289,28 @@ const projects = [
 
   .article-item {
     border-bottom: 1px solid rgba(245, 240, 232, 0.12);
+    border-left: 3px solid transparent;
+    transition: border-color 0.15s;
   }
 
   .article-item:first-child {
     border-top: 1px solid rgba(245, 240, 232, 0.12);
   }
 
+  .article-item:hover {
+    border-left-color: var(--gold);
+  }
+
   .article-link {
     display: flex;
     align-items: center;
     gap: var(--space-md);
-    padding: var(--space-md) 0;
+    padding: var(--space-md) var(--space-sm) var(--space-md) var(--space-sm);
     transition: background-color 0.15s;
   }
 
   .article-link:hover {
     background-color: rgba(245, 240, 232, 0.03);
-  }
-
-  .article-number {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 2rem;
-    color: var(--eu-light);
-    min-width: 3rem;
   }
 
   .article-info {
