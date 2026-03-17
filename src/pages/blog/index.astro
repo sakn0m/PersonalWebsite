@@ -14,7 +14,7 @@ const articles = [
 ---
 
 <BaseLayout title="Blog — Giorgio Vanini" description="Articles on AI, European politics, and geopolitics.">
-  <section class="blog-hero section-blue">
+  <section class="blog-hero">
     <div class="container">
       <h1 class="blog-title">Writing</h1>
       <p class="blog-subtitle">
@@ -37,9 +37,9 @@ const articles = [
               <span class="article-number">{article.number}</span>
               <div class="article-info">
                 <span class="article-title-text">{article.title}</span>
-                <span class="article-meta">{article.tag} — {article.date}{article.external ? ' ↗' : ''}</span>
+                <span class="article-meta">{article.tag} / {article.date}{article.external ? ' ↗' : ''}</span>
               </div>
-              <span class="article-arrow">→</span>
+              <span class="article-arrow">&rarr;</span>
             </a>
           </li>
         ))}
@@ -63,12 +63,13 @@ const articles = [
     text-transform: uppercase;
     color: var(--paper);
     margin-bottom: var(--space-xs);
+    letter-spacing: -0.02em;
   }
 
   .blog-subtitle {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--paper);
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .blog-link {
@@ -86,11 +87,11 @@ const articles = [
   }
 
   .article-item {
-    border-bottom: 1px solid rgba(245, 240, 232, 0.15);
+    border-bottom: 1px solid rgba(245, 240, 232, 0.12);
   }
 
   .article-item:first-child {
-    border-top: 1px solid rgba(245, 240, 232, 0.15);
+    border-top: 1px solid rgba(245, 240, 232, 0.12);
   }
 
   .article-link {
@@ -98,15 +99,16 @@ const articles = [
     align-items: center;
     gap: var(--space-md);
     padding: var(--space-md) 0;
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
   }
 
   .article-link:hover {
-    background-color: rgba(245, 240, 232, 0.04);
+    background-color: rgba(245, 240, 232, 0.03);
   }
 
   .article-number {
     font-family: var(--font-display);
+    font-weight: 800;
     font-size: 2.5rem;
     color: var(--eu-light);
     min-width: 4rem;
@@ -116,27 +118,29 @@ const articles = [
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.2rem;
   }
 
   .article-title-text {
     font-family: var(--font-display);
+    font-weight: 800;
     font-size: 1.5rem;
     text-transform: uppercase;
     color: var(--paper);
+    letter-spacing: -0.01em;
   }
 
   .article-meta {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
   .article-arrow {
-    font-size: 1.5rem;
-    opacity: 0.3;
-    transition: opacity 0.2s, transform 0.2s;
+    font-size: 1.25rem;
+    opacity: 0.2;
+    transition: opacity 0.15s, transform 0.15s;
   }
 
   .article-link:hover .article-arrow {
@@ -146,15 +150,15 @@ const articles = [
 
   .blog-note {
     margin-top: var(--space-lg);
-    font-size: 0.875rem;
-    opacity: 0.5;
+    font-size: 0.8rem;
+    opacity: 0.4;
   }
 
   .inline-link {
     color: var(--eu-light);
     font-weight: 700;
     border-bottom: 2px solid var(--eu-light);
-    transition: border-color 0.2s;
+    transition: border-color 0.15s;
   }
 
   .inline-link:hover {
@@ -172,7 +176,7 @@ const articles = [
     }
 
     .article-title-text {
-      font-size: 1.125rem;
+      font-size: 1.1rem;
     }
   }
 </style>

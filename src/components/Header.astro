@@ -3,13 +3,13 @@ const navLinks = [
   { label: 'About', href: '/#about' },
   { label: 'Writing', href: '/#writing' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: 'mailto:giorgio@giorgiovanini.eu' },
 ];
 ---
 
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="header-logo">GV</a>
-    <div class="header-stars" aria-hidden="true">★★★★★</div>
     <nav class="header-nav" aria-label="Main navigation">
       <button
         class="nav-toggle"
@@ -19,15 +19,11 @@ const navLinks = [
       >
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
       </button>
       <ul id="nav-menu" class="nav-list">
         {navLinks.map(link => (
           <li><a href={link.href} class="nav-link">{link.label}</a></li>
         ))}
-        <li>
-          <a href="mailto:giorgio@giorgiovanini.eu" class="nav-link">Contact</a>
-        </li>
       </ul>
     </nav>
   </div>
@@ -61,27 +57,19 @@ const navLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem;
+    height: 3.5rem;
   }
 
   .header-logo {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-weight: 800;
+    font-size: 1.25rem;
     color: var(--paper);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border: 3px solid var(--gold);
-    padding: 0.15rem 0.5rem;
+    padding: 0.1rem 0.45rem;
     line-height: 1;
-  }
-
-  .header-stars {
-    color: var(--gold);
-    font-size: 1rem;
-    letter-spacing: 0.3em;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .header-nav {
@@ -98,13 +86,13 @@ const navLinks = [
   .nav-link {
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--paper);
     padding: 0.25rem 0;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
+    transition: border-color 0.15s;
   }
 
   .nav-link:hover {
@@ -114,7 +102,7 @@ const navLinks = [
   .nav-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
@@ -123,17 +111,12 @@ const navLinks = [
 
   .nav-toggle-bar {
     display: block;
-    width: 24px;
-    height: 3px;
+    width: 22px;
+    height: 2px;
     background-color: var(--paper);
-    transition: transform 0.2s, opacity 0.2s;
   }
 
   @media (max-width: 768px) {
-    .header-stars {
-      display: none;
-    }
-
     .nav-toggle {
       display: flex;
     }
@@ -141,7 +124,7 @@ const navLinks = [
     .nav-list {
       display: none;
       position: absolute;
-      top: 4rem;
+      top: 3.5rem;
       left: 0;
       right: 0;
       background-color: var(--ink);
@@ -156,7 +139,7 @@ const navLinks = [
     }
 
     .nav-link {
-      font-size: 1rem;
+      font-size: 0.85rem;
     }
   }
 </style>

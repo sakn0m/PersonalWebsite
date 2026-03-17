@@ -1,9 +1,10 @@
 /* === DESIGN SYSTEM: Brutalist EU Political === */
 
-@import '@fontsource/archivo-black';
-@import '@fontsource/space-grotesk/400.css';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/syne/400.css';
+@import '@fontsource/syne/700.css';
+@import '@fontsource/syne/800.css';
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/700.css';
 
 :root {
   /* Palette */
@@ -16,8 +17,8 @@
   --paper:     #F5F0E8;
 
   /* Typography */
-  --font-display: 'Archivo Black', sans-serif;
-  --font-body:    'Space Grotesk', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Space Mono', monospace;
 
   /* Spacing */
   --space-xs:  0.5rem;
@@ -74,8 +75,8 @@ ul, ol {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 400; /* Archivo Black only has 400 */
-  line-height: 1.1;
+  font-weight: 800;
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
@@ -111,19 +112,19 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--paper);
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   overflow: hidden;
   white-space: nowrap;
   border-top: 3px solid var(--ink);
   border-bottom: 3px solid var(--ink);
-  padding: 0.6rem 0;
+  padding: 0.5rem 0;
 }
 
 .ticker-track {
   display: inline-flex;
-  animation: ticker-scroll 30s linear infinite;
+  animation: ticker-scroll 35s linear infinite;
 }
 
 .ticker-track span {
@@ -131,25 +132,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ticker-track span::after {
-  content: '★';
+  content: '/';
   padding-left: var(--space-md);
-  color: var(--gold);
+  opacity: 0.4;
 }
 
 @keyframes ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-/* === LINKS === */
-
-a.link-underline {
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s;
-}
-
-a.link-underline:hover {
-  border-bottom-color: var(--gold);
 }
 
 /* === RESPONSIVE === */

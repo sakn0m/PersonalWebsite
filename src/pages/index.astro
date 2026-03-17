@@ -14,17 +14,10 @@ const articles = [
 
 <BaseLayout title="Giorgio Vanini | AI, Politics, Europe">
   <!-- ═══ HERO ═══ -->
-  <section class="hero section-blue">
+  <section class="hero">
     <div class="hero-inner">
-      <div class="hero-stars" aria-hidden="true">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
       <h1 class="hero-name" id="hero-name">Giorgio Vanini</h1>
-      <p class="hero-tagline">AI & European Politics — Roma</p>
-      <div class="hero-links">
-        <a href="#about">About</a>
-        <a href="#writing">Writing</a>
-        <a href="/blog">Blog</a>
-        <a href="mailto:giorgio@giorgiovanini.eu">Contact</a>
-      </div>
+      <p class="hero-tagline">AI & European Politics — Roma 🇮🇹🇪🇺</p>
     </div>
   </section>
 
@@ -49,7 +42,7 @@ const articles = [
         <dl class="facts-list">
           <div class="fact">
             <dt>Location</dt>
-            <dd>Roma, Italia</dd>
+            <dd>Roma, Italia 🇮🇹</dd>
           </div>
           <div class="fact">
             <dt>University</dt>
@@ -61,11 +54,11 @@ const articles = [
           </div>
           <div class="fact">
             <dt>Languages</dt>
-            <dd>IT · EN · FR</dd>
+            <dd>IT / EN / FR</dd>
           </div>
           <div class="fact">
             <dt>Focus</dt>
-            <dd>AI Policy · Geopolitics</dd>
+            <dd>AI Policy / Geopolitics</dd>
           </div>
         </dl>
       </aside>
@@ -83,26 +76,26 @@ const articles = [
               <span class="article-number">{article.number}</span>
               <div class="article-info">
                 <span class="article-title">{article.title}</span>
-                <span class="article-meta">{article.tag} — {article.date}</span>
+                <span class="article-meta">{article.tag} / {article.date}</span>
               </div>
-              <span class="article-arrow">→</span>
+              <span class="article-arrow">&rarr;</span>
             </a>
           </li>
         ))}
       </ol>
-      <a href="/blog" class="all-articles-link">All articles →</a>
+      <a href="/blog" class="all-articles-link">All articles &rarr;</a>
     </div>
   </section>
 
   <!-- ═══ SPLIT PANEL ═══ -->
   <section class="split" aria-label="Next steps">
     <div class="split-left">
-      <span class="split-label">Paris · 2027</span>
-      <p class="split-text">Sciences Po · HEC · ESSEC</p>
+      <span class="split-label">Paris / 2027</span>
+      <p class="split-text">Sciences Po / HEC / ESSEC</p>
     </div>
     <div class="split-right">
       <span class="split-label">EU Policy</span>
-      <p class="split-text">Istituzioni europee · Think tank · Schuman Traineeship</p>
+      <p class="split-text">Istituzioni europee / Think tank / Schuman Traineeship</p>
     </div>
   </section>
 </BaseLayout>
@@ -115,7 +108,7 @@ const articles = [
     const container = el.parentElement;
     if (!container) return;
 
-    const maxWidth = container.clientWidth - 64; // padding
+    const maxWidth = container.clientWidth - 64;
     let size = 20;
     el.style.fontSize = size + 'px';
 
@@ -124,7 +117,6 @@ const articles = [
       el.style.fontSize = size + 'px';
     }
 
-    // Step back
     size -= 8;
     el.style.fontSize = size + 'px';
   }
@@ -137,9 +129,9 @@ const articles = [
   /* ═══ HERO ═══ */
   .hero {
     background-color: var(--eu-blue);
-    min-height: 60vh;
+    min-height: 55vh;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     position: relative;
     overflow: hidden;
   }
@@ -151,54 +143,23 @@ const articles = [
     width: 100%;
   }
 
-  .hero-stars {
-    color: var(--gold);
-    font-size: 1.25rem;
-    letter-spacing: 0.4em;
-    margin-bottom: var(--space-md);
-    opacity: 0.8;
-  }
-
   .hero-name {
     font-family: var(--font-display);
+    font-weight: 800;
     text-transform: uppercase;
     color: var(--paper);
     line-height: 0.9;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     white-space: nowrap;
   }
 
   .hero-tagline {
     font-family: var(--font-body);
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 400;
     color: var(--paper);
-    opacity: 0.85;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-lg);
-  }
-
-  .hero-links {
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-  }
-
-  .hero-links a {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--paper);
-    border: 2px solid var(--paper);
-    padding: 0.5rem 1.25rem;
-    transition: background-color 0.2s, color 0.2s;
-  }
-
-  .hero-links a:hover {
-    background-color: var(--paper);
-    color: var(--eu-blue);
+    opacity: 0.75;
+    letter-spacing: 0.04em;
   }
 
   /* ═══ ABOUT ═══ */
@@ -208,7 +169,7 @@ const articles = [
 
   .about-inner {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 280px;
     gap: var(--space-lg);
     align-items: start;
   }
@@ -217,7 +178,7 @@ const articles = [
     font-size: 2.5rem;
     text-transform: uppercase;
     margin-bottom: var(--space-md);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
   }
 
   .about .section-title {
@@ -225,7 +186,7 @@ const articles = [
   }
 
   .about-prose {
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 1.7;
   }
 
@@ -237,7 +198,7 @@ const articles = [
     color: var(--eu-blue);
     font-weight: 700;
     border-bottom: 2px solid var(--eu-blue);
-    transition: border-color 0.2s;
+    transition: border-color 0.15s;
   }
 
   .inline-link:hover {
@@ -257,16 +218,16 @@ const articles = [
 
   .fact dt {
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--eu-blue);
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.1rem;
   }
 
   .fact dd {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 400;
   }
 
   /* ═══ WRITING ═══ */
@@ -283,11 +244,11 @@ const articles = [
   }
 
   .article-item {
-    border-bottom: 1px solid rgba(245, 240, 232, 0.15);
+    border-bottom: 1px solid rgba(245, 240, 232, 0.12);
   }
 
   .article-item:first-child {
-    border-top: 1px solid rgba(245, 240, 232, 0.15);
+    border-top: 1px solid rgba(245, 240, 232, 0.12);
   }
 
   .article-link {
@@ -295,15 +256,16 @@ const articles = [
     align-items: center;
     gap: var(--space-md);
     padding: var(--space-md) 0;
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
   }
 
   .article-link:hover {
-    background-color: rgba(245, 240, 232, 0.04);
+    background-color: rgba(245, 240, 232, 0.03);
   }
 
   .article-number {
     font-family: var(--font-display);
+    font-weight: 800;
     font-size: 2rem;
     color: var(--eu-light);
     min-width: 3rem;
@@ -313,27 +275,29 @@ const articles = [
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.2rem;
   }
 
   .article-title {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-weight: 800;
+    font-size: 1.2rem;
     text-transform: uppercase;
     color: var(--paper);
+    letter-spacing: -0.01em;
   }
 
   .article-meta {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
   .article-arrow {
-    font-size: 1.5rem;
-    opacity: 0.3;
-    transition: opacity 0.2s, transform 0.2s;
+    font-size: 1.25rem;
+    opacity: 0.2;
+    transition: opacity 0.15s, transform 0.15s;
   }
 
   .article-link:hover .article-arrow {
@@ -345,12 +309,12 @@ const articles = [
     display: inline-block;
     margin-top: var(--space-md);
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--eu-light);
     border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
+    transition: border-color 0.15s;
   }
 
   .all-articles-link:hover {
@@ -375,29 +339,26 @@ const articles = [
 
   .split-label {
     font-family: var(--font-display);
+    font-weight: 800;
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--paper);
     display: block;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.02em;
   }
 
   .split-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--paper);
-    opacity: 0.8;
-    line-height: 1.6;
+    opacity: 0.7;
+    line-height: 1.5;
   }
 
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 768px) {
     .hero {
-      min-height: 50vh;
-    }
-
-    .hero-links a {
-      font-size: 0.7rem;
-      padding: 0.4rem 1rem;
+      min-height: 40vh;
     }
 
     .about-inner {
