@@ -15,8 +15,11 @@ const articles = [
 <BaseLayout title="Giorgio Vanini | AI, Management & Data Analysis">
   <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-name" id="hero-name">Giorgio Vanini</h1>
+    <div class="hero-inner container">
+      <h1 class="hero-name">
+        <span class="name-first">Giorgio</span>
+        <span class="name-last">Vanini</span>
+      </h1>
       <p class="hero-tagline">AI, Management & Data Analysis — Roma 🇮🇹🇪🇺</p>
     </div>
   </section>
@@ -113,48 +116,6 @@ const articles = [
   </section>
 </BaseLayout>
 
-<script>
-  function fitHeroName() {
-    const el = document.getElementById('hero-name');
-    if (!el) return;
-
-    const container = el.parentElement;
-    if (!container) return;
-
-    // Reset styles to calculate natural width
-    el.style.whiteSpace = 'nowrap';
-    el.style.fontSize = '20px';
-
-    const maxWidth = container.clientWidth - (window.innerWidth <= 768 ? 32 : 64);
-    let size = 20;
-
-    // If screen is very small, we might want to stack the name instead of making it tiny
-    if (window.innerWidth <= 480 && el.textContent.includes(' ')) {
-        el.innerHTML = el.textContent.replace(' ', '<br>');
-        el.style.whiteSpace = 'normal';
-        // recalculate size for broken text
-        while (el.scrollWidth <= maxWidth && size < 120) { // Limit max size on mobile
-          size += 2;
-          el.style.fontSize = size + 'px';
-        }
-    } else {
-        while (el.scrollWidth <= maxWidth && size < 300) {
-          size += 4;
-          el.style.fontSize = size + 'px';
-        }
-    }
-
-    size -= (window.innerWidth <= 768 ? 4 : 8);
-    el.style.fontSize = size + 'px';
-  }
-
-  fitHeroName();
-  window.addEventListener('resize', fitHeroName);
-  if (document.fonts) {
-    document.fonts.ready.then(fitHeroName);
-  }
-</script>
-
 <style>
   /* ═══ HERO ═══ */
   .hero {
@@ -167,9 +128,8 @@ const articles = [
   }
 
   .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-xl) var(--space-md) var(--space-lg);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
     width: 100%;
   }
 
@@ -178,10 +138,16 @@ const articles = [
     font-weight: 800;
     text-transform: uppercase;
     color: var(--paper);
-    line-height: 0.9;
+    line-height: 0.85;
     margin-bottom: var(--space-sm);
-    white-space: nowrap;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(4rem, 12vw, 11rem);
+  }
+
+  .name-last {
+    margin-left: 1.25em;
   }
 
   .hero-tagline {
@@ -428,6 +394,10 @@ const articles = [
   @media (max-width: 768px) {
     .hero {
       min-height: 40vh;
+    }
+
+    .name-last {
+      margin-left: 0.75em;
     }
 
     .hero-tagline {
