@@ -143,11 +143,10 @@ const articles = [
     letter-spacing: -0.04em;
     display: flex;
     flex-direction: column;
-    font-size: clamp(3rem, 15vw, 11rem);
-  }
-
-  .name-last {
-    margin-left: 0;
+    font-size: clamp(3rem, 12vw, 11rem);
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .hero-tagline {
@@ -394,10 +393,6 @@ const articles = [
   @media (max-width: 768px) {
     .hero {
       min-height: 40vh;
-    }
-
-    .name-last {
-      margin-left: 0.75em;
     }
 
     .hero-tagline {
