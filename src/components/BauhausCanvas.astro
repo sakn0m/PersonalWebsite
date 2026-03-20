@@ -1,0 +1,377 @@
+---
+import Shape from './Shape.astro';
+---
+
+<div class="screen" id="screen">
+  <!-- Ghost letterforms -->
+  <div class="floating-char" style="top:-30px;right:-20px">G</div>
+  <div class="floating-char" style="bottom:-40px;left:-10px;font-size:160px">V</div>
+
+  <!-- Grid -->
+  <div class="grid-line grid-h" style="top:25%"></div>
+  <div class="grid-line grid-h" style="top:50%"></div>
+  <div class="grid-line grid-h" style="top:75%"></div>
+  <div class="grid-line grid-v" style="left:25%"></div>
+  <div class="grid-line grid-v" style="left:50%"></div>
+  <div class="grid-line grid-v" style="left:75%"></div>
+
+  <!-- Diagonals -->
+  <div class="diagonal" style="top:0;left:0;transform:rotate(25deg)"></div>
+  <div class="diagonal" style="bottom:0;right:0;transform:rotate(25deg);transform-origin:100% 100%"></div>
+
+  <!-- Crosshair -->
+  <div class="crosshair-h" id="ch" style="top:50%"></div>
+  <div class="crosshair-v" id="cv" style="left:50%"></div>
+
+  <!-- Name -->
+  <div class="big-name" data-depth="0.02">
+    Giorgio<br>Vanini
+    <span class="sub">AI &middot; Data &middot; Politics</span>
+  </div>
+
+  <!-- Tags -->
+  <div class="tag" style="bottom:20px;left:40px;color:#333">giorgiovanini.eu</div>
+  <div class="tag" style="top:20px;right:20px;color:#333">N.001 / 2026</div>
+
+  <!-- Axis label -->
+  <div class="axis-label" style="bottom:50px;left:50%;transform:translateX(-50%)">Hover to explore</div>
+
+  <!-- Corner marks -->
+  <div class="corner-mark" style="top:8px;left:8px">+</div>
+  <div class="corner-mark" style="top:8px;right:8px">+</div>
+  <div class="corner-mark" style="bottom:8px;left:8px">+</div>
+  <div class="corner-mark" style="bottom:8px;right:8px">+</div>
+
+  <!-- ═══ CV SHAPES ═══ -->
+
+  <!-- Education -->
+  <Shape
+    width={180} height={180}
+    bg="#003399"
+    top="26%" left="55%"
+    depth={0.04} zIndex={10}
+    variant="circle"
+    label="Education" labelColor="#FFCC00"
+    revealTitle="LUISS Guido Carli" revealTitleColor="#FFCC00"
+    revealBody="BSc AI &amp; Management<br>2024 — present<br>Roma, Italia<br><br>Target: HEC / ESSEC<br>Paris, 2027"
+    revealColor="#fff"
+    pulse
+  />
+
+  <!-- Competences -->
+  <Shape
+    width={200} height={120}
+    bg="#C0392B"
+    top="60%" left="15%"
+    depth={0.06} zIndex={8}
+    label="Competences"
+    revealTitle="Technical + Political"
+    revealBody="Python / ML / SNA<br>Astro / React / Git<br>EU policy / Con. law<br>Electoral systems"
+  />
+
+  <!-- Lingue -->
+  <Shape
+    width={140} height={140}
+    bg="#FFCC00"
+    top="14%" right="12%"
+    depth={0.05} zIndex={9}
+    variant="triangle"
+    label="Lingue" labelColor="#003399" labelStyle="margin-top:40px"
+    revealTitle="IT / EN / FR"
+    revealBody="C2 / C2 / B2"
+    revealColor="#003399"
+    revealPadding="40px"
+  />
+
+  <!-- Interests -->
+  <Shape
+    width={130} height={130}
+    border="2px solid #fff"
+    top="54%" right="10%"
+    depth={0.08} zIndex={7}
+    variant="circle"
+    label="Interests"
+    revealTitle="Cinema / Music"
+    revealBody="Art cinema<br>Cantautorato<br>Geopolitics<br>Editorial design"
+  />
+
+  <!-- Convictions -->
+  <Shape
+    width={240} height={60}
+    border="2px solid #FFCC00"
+    bottom="14%" left="35%"
+    depth={0.03} zIndex={6}
+    label="Convictions" labelColor="#FFCC00" labelStyle="font-size:11px;letter-spacing:3px"
+    revealTitle="European federalist" revealTitleStyle="font-size:12px"
+    revealBody="Fiscal union / Digital sovereignty / Open source / Nuclear for AI"
+    revealColor="#FFCC00"
+  />
+
+  <!-- ═══ DECORATIVE ═══ -->
+  <Shape width={30} height={30} bg="#C0392B" top="20%" left="38%" depth={0.09} zIndex={3} variant="circle" decorative />
+  <Shape width={20} height={20} bg="#FFCC00" top="80%" left="60%" depth={0.07} zIndex={3} decorative rotate="45deg" />
+  <Shape width={16} height={16} bg="#003399" top="43%" left="12%" depth={0.1} zIndex={3} variant="circle" decorative />
+  <div class="deco-line" style="top:50%;left:8%;transform:rotate(-15deg)"></div>
+
+  <!-- Coordinate readout -->
+  <div class="coords" id="coords">x: 0 / y: 0</div>
+</div>
+
+<style>
+  .screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: var(--ink);
+    overflow: hidden;
+    cursor: crosshair;
+  }
+
+  .floating-char {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    font-size: 200px;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  .grid-line {
+    position: absolute;
+    background: var(--grid);
+    pointer-events: none;
+  }
+
+  .grid-h {
+    width: 100%;
+    height: 1px;
+  }
+
+  .grid-v {
+    height: 100%;
+    width: 1px;
+  }
+
+  .diagonal {
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.03);
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+
+  .crosshair-h,
+  .crosshair-v {
+    position: absolute;
+    background: var(--crosshair);
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.08s linear;
+  }
+
+  .crosshair-h {
+    height: 1px;
+    width: 100%;
+    left: 0;
+  }
+
+  .crosshair-v {
+    width: 1px;
+    height: 100%;
+    top: 0;
+  }
+
+  .big-name {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: difference;
+  }
+
+  .big-name .sub {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: var(--font-mono);
+    letter-spacing: 4px;
+    color: var(--mid-gray);
+    margin-top: 12px;
+    mix-blend-mode: normal;
+  }
+
+  .tag {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .axis-label {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #333;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .corner-mark {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #333;
+    pointer-events: none;
+  }
+
+  .deco-line {
+    position: absolute;
+    width: 80px;
+    height: 2px;
+    background: #fff;
+    pointer-events: none;
+    opacity: 0.15;
+  }
+
+  .coords {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #444;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* ═══ MOBILE ═══ */
+  @media (max-width: 768px) {
+    .screen {
+      height: auto;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 2rem 1rem 4rem;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .big-name {
+      position: relative;
+      top: auto;
+      left: auto;
+      font-size: 48px;
+      mix-blend-mode: normal;
+      align-self: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .floating-char,
+    .grid-line,
+    .diagonal,
+    .crosshair-h,
+    .crosshair-v,
+    .corner-mark,
+    .deco-line,
+    .coords {
+      display: none;
+    }
+
+    .axis-label {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      transform: none;
+      color: var(--dim);
+      margin-top: auto;
+    }
+
+    .tag {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      top: auto;
+      right: auto;
+    }
+  }
+</style>
+
+<script>
+  const screen = document.getElementById('screen')!;
+  const ch = document.getElementById('ch')!;
+  const cv = document.getElementById('cv')!;
+  const coords = document.getElementById('coords')!;
+  const bigName = screen.querySelector('.big-name') as HTMLElement;
+  const shapes = screen.querySelectorAll<HTMLElement>('[data-depth]');
+
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  if (!isMobile) {
+    let mx = 0.5, my = 0.5;
+    let animMx = 0.5, animMy = 0.5;
+
+    screen.addEventListener('mousemove', (e) => {
+      const rect = screen.getBoundingClientRect();
+      mx = (e.clientX - rect.left) / rect.width;
+      my = (e.clientY - rect.top) / rect.height;
+      ch.style.top = (my * 100) + '%';
+      cv.style.left = (mx * 100) + '%';
+      coords.textContent = `x: ${Math.round(mx * rect.width)} / y: ${Math.round(my * rect.height)}`;
+    });
+
+    screen.addEventListener('mouseleave', () => {
+      mx = 0.5;
+      my = 0.5;
+    });
+
+    function animate() {
+      animMx += (mx - animMx) * 0.08;
+      animMy += (my - animMy) * 0.08;
+
+      shapes.forEach((s) => {
+        if (s === bigName) return;
+        const depth = parseFloat(s.dataset.depth!) || 0;
+        const dx = (animMx - 0.5) * depth * 600;
+        const dy = (animMy - 0.5) * depth * 600;
+        s.style.transform = `translate(${dx.toFixed(1)}px,${dy.toFixed(1)}px)`;
+      });
+
+      if (bigName) {
+        const ndx = (animMx - 0.5) * 12;
+        const ndy = (animMy - 0.5) * 12;
+        bigName.style.transform = `translate(${ndx.toFixed(1)}px,${ndy.toFixed(1)}px)`;
+      }
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  } else {
+    // Mobile: tap-to-reveal
+    screen.querySelectorAll<HTMLElement>('[data-depth]:not([style*="pointer-events:none"])').forEach((shape) => {
+      shape.addEventListener('click', () => {
+        const wasActive = shape.classList.contains('tap-active');
+        // Close all others
+        screen.querySelectorAll('.tap-active').forEach((s) => s.classList.remove('tap-active'));
+        if (!wasActive) shape.classList.add('tap-active');
+      });
+    });
+  }
+</script>

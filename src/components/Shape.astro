@@ -1,0 +1,163 @@
+---
+export interface Props {
+  width: number;
+  height: number;
+  bg?: string;
+  border?: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  depth: number;
+  zIndex?: number;
+  variant?: 'circle' | 'triangle';
+  label?: string;
+  labelColor?: string;
+  labelStyle?: string;
+  revealTitle?: string;
+  revealBody?: string;
+  revealColor?: string;
+  revealTitleColor?: string;
+  revealTitleStyle?: string;
+  revealPadding?: string;
+  pulse?: boolean;
+  decorative?: boolean;
+  rotate?: string;
+}
+
+const {
+  width, height, bg, border,
+  top, left, right, bottom,
+  depth, zIndex, variant,
+  label, labelColor = '#fff', labelStyle = '',
+  revealTitle, revealBody,
+  revealColor = '#fff', revealTitleColor, revealTitleStyle = '',
+  revealPadding,
+  pulse = false, decorative = false, rotate,
+} = Astro.props;
+
+const containerStyle = [
+  `width:${width}px`,
+  `height:${height}px`,
+  bg && `background:${bg}`,
+  border && `border:${border}`,
+  top && `top:${top}`,
+  left && `left:${left}`,
+  right && `right:${right}`,
+  bottom && `bottom:${bottom}`,
+  zIndex && `z-index:${zIndex}`,
+  variant === 'triangle' && 'clip-path:polygon(50% 0%,0% 100%,100% 100%)',
+  decorative && 'pointer-events:none',
+  rotate && `rotate:${rotate}`,
+].filter(Boolean).join(';');
+
+const labelFullStyle = `color:${labelColor};${labelStyle}`;
+const revealFullStyle = `color:${revealColor}${revealPadding ? `;padding-top:${revealPadding}` : ''}`;
+const titleStyle = [
+  revealTitleColor && `color:${revealTitleColor}`,
+  revealTitleStyle,
+].filter(Boolean).join(';') || undefined;
+---
+
+<div class:list={['shape', { circle: variant === 'circle' }]} data-depth={String(depth)} style={containerStyle}>
+  {label && <span class="shape-label" style={labelFullStyle}>{label}</span>}
+  {(revealTitle || revealBody) && (
+    <div class="reveal" style={revealFullStyle}>
+      {revealTitle && <div class="reveal-title" style={titleStyle}>{revealTitle}</div>}
+      {revealBody && <div class="reveal-body" set:html={revealBody} />}
+    </div>
+  )}
+  {pulse && <div class="pulse-ring" style={`width:${width}px;height:${height}px;top:0;left:0`} />}
+</div>
+
+<style>
+  .shape {
+    position: absolute;
+    transition: transform 0.4s cubic-bezier(.23, 1, .32, 1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shape:hover {
+    z-index: 100 !important;
+  }
+
+  .circle {
+    border-radius: 50%;
+  }
+
+  .shape-label {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .shape:hover .shape-label {
+    opacity: 0;
+  }
+
+  .reveal {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .shape:hover .reveal {
+    opacity: 1;
+  }
+
+  .reveal-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .reveal-body {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+
+  .pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 204, 0, 0.2);
+    animation: pulse 3s ease-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(2.5); opacity: 0; }
+  }
+
+  /* Mobile: tap-to-reveal replaces hover */
+  @media (max-width: 768px) {
+    .shape {
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .shape:hover .shape-label { opacity: 1; }
+    .shape:hover .reveal { opacity: 0; }
+
+    .shape.tap-active .shape-label { opacity: 0; }
+    .shape.tap-active .reveal { opacity: 1; }
+  }
+</style>

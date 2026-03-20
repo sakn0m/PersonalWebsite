@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giorgio Vanini — CV Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+.screen{position:relative;width:100%;max-width:900px;min-height:700px;background:#0a0a0a;overflow:hidden;cursor:crosshair;border-radius:0}
+.shape{position:absolute;transition:transform 0.4s cubic-bezier(.23,1,.32,1);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.shape:hover{z-index:100!important}
+.big-name{position:absolute;top:40px;left:40px;font-family:'Syne',sans-serif;font-size:72px;font-weight:800;color:#fff;line-height:0.9;letter-spacing:-3px;pointer-events:none;z-index:2;mix-blend-mode:difference}
+.big-name .sub{display:block;font-size:13px;font-weight:400;font-family:'IBM Plex Mono',monospace;letter-spacing:4px;color:#888;margin-top:12px;mix-blend-mode:normal}
+.grid-line{position:absolute;background:rgba(255,255,255,0.04);pointer-events:none}
+.grid-h{width:100%;height:1px}
+.grid-v{height:100%;width:1px}
+.circle{border-radius:50%}
+.tag{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#555;letter-spacing:2px;text-transform:uppercase;pointer-events:none;white-space:nowrap}
+.reveal{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;transition:opacity 0.3s;padding:12px;text-align:center}
+.shape:hover .reveal{opacity:1}
+.shape:hover .shape-label{opacity:0}
+.shape-label{font-family:'Syne',sans-serif;font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:opacity 0.3s;pointer-events:none}
+.reveal-title{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;margin-bottom:6px}
+.reveal-body{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;opacity:0.8}
+.crosshair-h,.crosshair-v{position:absolute;background:rgba(255,204,0,0.15);pointer-events:none;z-index:1;transition:all 0.08s linear}
+.crosshair-h{height:1px;width:100%;left:0}
+.crosshair-v{width:1px;height:100%;top:0}
+.coords{position:absolute;bottom:16px;right:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#444;z-index:5;pointer-events:none}
+.axis-label{position:absolute;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:#333;text-transform:uppercase;pointer-events:none}
+.diagonal{position:absolute;width:200%;height:1px;background:rgba(255,255,255,0.03);transform-origin:0 0;pointer-events:none}
+.corner-mark{position:absolute;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#333;pointer-events:none}
+.pulse-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,204,0,0.2);animation:pulse 3s ease-out infinite;pointer-events:none}
+@keyframes pulse{0%{transform:scale(1);opacity:0.4}100%{transform:scale(2.5);opacity:0}}
+.floating-char{position:absolute;font-family:'Syne',sans-serif;font-weight:800;color:rgba(255,255,255,0.03);pointer-events:none;font-size:200px;line-height:1;z-index:0}
+</style>
+</head>
+<body>
+
+<div class="screen" id="screen">
+  <div class="floating-char" style="top:-30px;right:-20px">G</div>
+  <div class="floating-char" style="bottom:-40px;left:-10px;font-size:160px">V</div>
+
+  <div class="grid-line grid-h" style="top:25%"></div>
+  <div class="grid-line grid-h" style="top:50%"></div>
+  <div class="grid-line grid-h" style="top:75%"></div>
+  <div class="grid-line grid-v" style="left:25%"></div>
+  <div class="grid-line grid-v" style="left:50%"></div>
+  <div class="grid-line grid-v" style="left:75%"></div>
+  <div class="diagonal" style="top:0;left:0;transform:rotate(25deg)"></div>
+  <div class="diagonal" style="bottom:0;right:0;transform:rotate(25deg);transform-origin:100% 100%"></div>
+
+  <div class="crosshair-h" id="ch" style="top:50%"></div>
+  <div class="crosshair-v" id="cv" style="left:50%"></div>
+
+  <div class="big-name" data-depth="0.02">
+    Giorgio<br>Vanini
+    <span class="sub">AI &middot; Data &middot; Politics</span>
+  </div>
+
+  <div class="tag" style="bottom:20px;left:40px;color:#333">giorgiovanini.eu</div>
+  <div class="tag" style="top:20px;right:20px;color:#333">N.001 / 2026</div>
+
+  <div class="axis-label" style="bottom:50px;left:50%;transform:translateX(-50%)">Hover to explore</div>
+
+  <div class="corner-mark" style="top:8px;left:8px">+</div>
+  <div class="corner-mark" style="top:8px;right:8px">+</div>
+  <div class="corner-mark" style="bottom:8px;left:8px">+</div>
+  <div class="corner-mark" style="bottom:8px;right:8px">+</div>
+
+  <!-- EDUCATION: Large blue circle -->
+  <div class="shape circle" data-depth="0.04" style="width:180px;height:180px;background:#003399;top:180px;left:55%;z-index:10">
+    <div class="shape-label" style="color:#FFCC00">Education</div>
+    <div class="reveal" style="color:#fff">
+      <div class="reveal-title" style="color:#FFCC00">LUISS Guido Carli</div>
+      <div class="reveal-body">BSc AI &amp; Management<br>2024 — present<br>Roma, Italia<br><br>Target: HEC / ESSEC<br>Paris, 2027</div>
+    </div>
+    <div class="pulse-ring" style="width:180px;height:180px;top:0;left:0"></div>
+  </div>
+
+  <!-- SKILLS: Red rectangle -->
+  <div class="shape" data-depth="0.06" style="width:200px;height:120px;background:#C0392B;top:420px;left:15%;z-index:8">
+    <div class="shape-label" style="color:#fff">Competences</div>
+    <div class="reveal" style="color:#fff">
+      <div class="reveal-title">Technical + Political</div>
+      <div class="reveal-body">Python / ML / SNA<br>Astro / React / Git<br>EU policy / Con. law<br>Electoral systems</div>
+    </div>
+  </div>
+
+  <!-- LANGUAGES: Yellow triangle -->
+  <div class="shape" data-depth="0.05" style="width:140px;height:140px;background:#FFCC00;clip-path:polygon(50% 0%,0% 100%,100% 100%);top:100px;right:12%;z-index:9">
+    <div class="shape-label" style="color:#003399;margin-top:40px">Lingue</div>
+    <div class="reveal" style="color:#003399;padding-top:40px">
+      <div class="reveal-title">IT / EN / FR</div>
+      <div class="reveal-body">C2 / C2 / B2</div>
+    </div>
+  </div>
+
+  <!-- INTERESTS: Hollow white circle -->
+  <div class="shape circle" data-depth="0.08" style="width:130px;height:130px;border:2px solid #fff;top:380px;right:10%;z-index:7">
+    <div class="shape-label" style="color:#fff">Interests</div>
+    <div class="reveal" style="color:#fff">
+      <div class="reveal-title">Cinema / Music</div>
+      <div class="reveal-body">Art cinema<br>Cantautorato<br>Geopolitics<br>Editorial design</div>
+    </div>
+  </div>
+
+  <!-- POLITICS: Gold-outlined bar -->
+  <div class="shape" data-depth="0.03" style="width:240px;height:60px;background:transparent;border:2px solid #FFCC00;bottom:100px;left:35%;z-index:6">
+    <div class="shape-label" style="color:#FFCC00;font-size:11px;letter-spacing:3px">Convictions</div>
+    <div class="reveal" style="color:#FFCC00">
+      <div class="reveal-title" style="font-size:12px">European federalist</div>
+      <div class="reveal-body">Fiscal union / Digital sovereignty / Open source / Nuclear for AI</div>
+    </div>
+  </div>
+
+  <!-- Decorative elements -->
+  <div class="shape circle" data-depth="0.09" style="width:30px;height:30px;background:#C0392B;top:140px;left:38%;z-index:3;pointer-events:none"></div>
+  <div class="shape" data-depth="0.07" style="width:20px;height:20px;background:#FFCC00;top:560px;left:60%;z-index:3;pointer-events:none;transform:rotate(45deg)"></div>
+  <div class="shape circle" data-depth="0.1" style="width:16px;height:16px;background:#003399;top:300px;left:12%;z-index:3;pointer-events:none"></div>
+  <div style="position:absolute;width:80px;height:2px;background:#fff;top:350px;left:8%;transform:rotate(-15deg);pointer-events:none;opacity:0.15"></div>
+
+  <div class="coords" id="coords">x: 0 / y: 0</div>
+</div>
+
+<script>
+(function(){
+  const screen = document.getElementById('screen');
+  const shapes = document.querySelectorAll('.shape');
+  const ch = document.getElementById('ch');
+  const cv = document.getElementById('cv');
+  const coords = document.getElementById('coords');
+  const bigName = document.querySelector('.big-name');
+
+  let mx = 0.5, my = 0.5;
+  let animMx = 0.5, animMy = 0.5;
+
+  screen.addEventListener('mousemove', function(e) {
+    const rect = screen.getBoundingClientRect();
+    mx = (e.clientX - rect.left) / rect.width;
+    my = (e.clientY - rect.top) / rect.height;
+    ch.style.top = (my * 100) + '%';
+    cv.style.left = (mx * 100) + '%';
+    coords.textContent = 'x: ' + Math.round(mx * 900) + ' / y: ' + Math.round(my * 700);
+  });
+
+  screen.addEventListener('mouseleave', function() {
+    mx = 0.5; my = 0.5;
+  });
+
+  function animate() {
+    animMx += (mx - animMx) * 0.08;
+    animMy += (my - animMy) * 0.08;
+
+    shapes.forEach(function(s) {
+      const depth = parseFloat(s.dataset.depth) || 0;
+      const dx = (animMx - 0.5) * depth * 600;
+      const dy = (animMy - 0.5) * depth * 600;
+      s.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px)';
+    });
+
+    if (bigName) {
+      const ndx = (animMx - 0.5) * 12;
+      const ndy = (animMy - 0.5) * 12;
+      bigName.style.transform = 'translate(' + ndx.toFixed(1) + 'px,' + ndy.toFixed(1) + 'px)';
+    }
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+</script>
+
+</body>
+</html>
