@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   description = 'BSc AI & Management @ LUISS Guido Carli. Writing about technology, geopolitics and digital sovereignty.',
-  ogImage = '/og-image.svg',
+  ogImage = '/og-image.png',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -23,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/icon.png" type="image/png" />
   <link rel="canonical" href={canonicalURL} />
 
   <title>{title}</title>
