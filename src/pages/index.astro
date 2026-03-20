@@ -164,9 +164,9 @@ const projects = [
   /* ═══ HERO ═══ */
   .hero {
     background-color: var(--eu-blue);
-    min-height: 55vh;
+    min-height: 100svh;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     position: relative;
     overflow: hidden;
   }
@@ -275,10 +275,6 @@ const projects = [
 
   .writing .section-title {
     color: var(--paper);
-  }
-
-  .article-list {
-    counter-reset: none;
   }
 
   .article-item {
@@ -541,11 +537,6 @@ const projects = [
 
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 768px) {
-    .hero {
-      min-height: 100svh;
-      align-items: center;
-    }
-
     .hero-name {
       font-size: 13vw;
       line-height: 0.9;
