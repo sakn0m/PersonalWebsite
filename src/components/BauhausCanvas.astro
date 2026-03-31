@@ -2,128 +2,166 @@
 import Shape from './Shape.astro';
 ---
 
-<div class="screen" id="screen">
-  <!-- Ghost letterforms -->
-  <div class="floating-char" style="top:-30px;right:-20px">G</div>
-  <div class="floating-char" style="bottom:-40px;left:-10px;font-size:160px">V</div>
+<div class="viewport" id="viewport">
+  <div class="screen" id="screen">
+    <!-- Ghost letterforms -->
+    <div class="floating-char" style="top:-30px;right:-20px">G</div>
+    <div class="floating-char" style="bottom:-40px;left:-10px;font-size:160px">V</div>
 
-  <!-- Grid -->
-  <div class="grid-line grid-h" style="top:25%"></div>
-  <div class="grid-line grid-h" style="top:50%"></div>
-  <div class="grid-line grid-h" style="top:75%"></div>
-  <div class="grid-line grid-v" style="left:25%"></div>
-  <div class="grid-line grid-v" style="left:50%"></div>
-  <div class="grid-line grid-v" style="left:75%"></div>
+    <!-- Grid -->
+    <div class="grid-line grid-h" style="top:25%"></div>
+    <div class="grid-line grid-h" style="top:50%"></div>
+    <div class="grid-line grid-h" style="top:75%"></div>
+    <div class="grid-line grid-v" style="left:25%"></div>
+    <div class="grid-line grid-v" style="left:50%"></div>
+    <div class="grid-line grid-v" style="left:75%"></div>
 
-  <!-- Diagonals -->
-  <div class="diagonal" style="top:0;left:0;transform:rotate(25deg)"></div>
-  <div class="diagonal" style="bottom:0;right:0;transform:rotate(25deg);transform-origin:100% 100%"></div>
+    <!-- Diagonals -->
+    <div class="diagonal" style="top:0;left:0;transform:rotate(25deg)"></div>
+    <div class="diagonal" style="bottom:0;right:0;transform:rotate(25deg);transform-origin:100% 100%"></div>
 
-  <!-- Crosshair -->
-  <div class="crosshair-h" id="ch" style="top:50%"></div>
-  <div class="crosshair-v" id="cv" style="left:50%"></div>
+    <!-- Crosshair -->
+    <div class="crosshair-h" id="ch" style="top:50%"></div>
+    <div class="crosshair-v" id="cv" style="left:50%"></div>
 
-  <!-- Name -->
-  <div class="big-name" data-depth="0.02">
-    Giorgio<br>Vanini
-    <span class="sub">AI &middot; Data &middot; Politics</span>
+    <!-- Name -->
+    <div class="big-name" data-depth="0.02">
+      giorgio<br>vanini
+      <span class="sub">AI &middot; Data &middot; Politics</span>
+    </div>
+
+    <!-- Tags -->
+    <div class="tag" style="bottom:20px;left:40px;color:#333">giorgiovanini.eu</div>
+    <div class="tag" style="top:20px;right:20px;color:#333">N.001 / 2026</div>
+
+    <!-- Axis label (desktop) -->
+    <div class="axis-label" style="bottom:50px;left:50%;transform:translateX(-50%)">Hover to explore</div>
+
+    <!-- Corner marks -->
+    <div class="corner-mark" style="top:8px;left:8px">+</div>
+    <div class="corner-mark" style="top:8px;right:8px">+</div>
+    <div class="corner-mark" style="bottom:8px;left:8px">+</div>
+    <div class="corner-mark" style="bottom:8px;right:8px">+</div>
+
+    <!-- ═══ CV SHAPES ═══ -->
+
+    <!-- Education -->
+    <Shape
+      width={180} height={180}
+      bg="#003399"
+      top="25%" left="48%"
+      depth={0.04} zIndex={10}
+      variant="circle"
+      label="Education" labelColor="#FFCC00"
+      revealTitle="LUISS Guido Carli" revealTitleColor="#FFCC00"
+      revealBody="BSc AI &amp; Management<br>2024 — present<br>Roma, Italia<br><br>Target: HEC / ESSEC<br>Paris, 2027"
+      revealColor="#fff"
+      pulse
+    />
+
+    <!-- Competences -->
+    <Shape
+      width={200} height={120}
+      bg="#C0392B"
+      top="58%" left="10%"
+      depth={0.06} zIndex={8}
+      label="Competences"
+      revealTitle="Technical + Political"
+      revealBody="Python / ML / SNA<br>Astro / React / Git<br>EU policy / Con. law<br>Electoral systems"
+    />
+
+    <!-- Lingue -->
+    <Shape
+      width={140} height={140}
+      bg="#FFCC00"
+      top="8%" right="8%"
+      depth={0.05} zIndex={9}
+      variant="triangle"
+      label="Lingue" labelColor="#003399" labelStyle="margin-top:40px"
+      revealTitle="IT / EN / FR"
+      revealBody="C2 / C2 / B2"
+      revealColor="#003399"
+      revealPadding="40px"
+    />
+
+    <!-- Interests -->
+    <Shape
+      width={130} height={130}
+      border="2px solid #fff"
+      top="45%" right="6%"
+      depth={0.08} zIndex={7}
+      variant="circle"
+      label="Interests"
+      revealTitle="Cinema / Music"
+      revealBody="Art cinema<br>Cantautorato<br>Geopolitics<br>Editorial design"
+    />
+
+    <!-- Convictions -->
+    <Shape
+      width={240} height={60}
+      border="2px solid #FFCC00"
+      bottom="15%" left="28%"
+      depth={0.03} zIndex={6}
+      label="Convictions" labelColor="#FFCC00" labelStyle="font-size:11px;letter-spacing:3px"
+      revealTitle="European federalist" revealTitleStyle="font-size:12px"
+      revealBody="Fiscal union / Digital sovereignty / Open source / Nuclear for AI"
+      revealColor="#FFCC00"
+    />
+
+    <!-- Projects -->
+    <Shape
+      width={260} height={150}
+      border="2px solid #fff"
+      bottom="8%" right="6%"
+      depth={0.05} zIndex={7}
+      label="Projects"
+      revealTitle="Selected Work"
+      revealBody="<a href='https://github.com/sakn0m/expert_ai_project_LUISS' target='_blank' rel='noopener'>Expert AI / NLP</a><br><a href='https://github.com/sakn0m/SNA_Project' target='_blank' rel='noopener'>SNA / Networks</a><br><a href='https://github.com/sakn0m/S-P500-Predictor' target='_blank' rel='noopener'>S&amp;P 500 / ML</a><br><a href='https://github.com/ariannacambi/AudienceDecode-317971' target='_blank' rel='noopener'>Audience Decode</a><br><a href='https://github.com/sakn0m' target='_blank' rel='noopener'>All projects →</a>"
+    />
+
+    <!-- Connect -->
+    <Shape
+      width={180} height={120}
+      border="2px solid #C0392B"
+      top="32%" left="4%"
+      depth={0.04} zIndex={7}
+      label="Connect" labelColor="#C0392B"
+      revealTitle="Get in Touch"
+      revealBody="<a href='https://github.com/sakn0m' target='_blank' rel='noopener'>GitHub</a> · <a href='https://www.linkedin.com/in/giorgio-vanini-8627123a4/' target='_blank' rel='noopener'>LinkedIn</a><br><a href='https://jojo.news' target='_blank' rel='noopener'>jojo.news</a><br><a href='mailto:giorgio@giorgiovanini.eu'>Email</a><br>Signal preferred"
+      revealColor="#fff"
+    />
+
+    <!-- ═══ DECORATIVE ═══ -->
+    <Shape width={30} height={30} bg="#C0392B" top="18%" left="36%" depth={0.09} zIndex={3} variant="circle" decorative />
+    <Shape width={20} height={20} bg="#FFCC00" top="78%" left="55%" depth={0.07} zIndex={3} decorative rotate="45deg" />
+    <Shape width={16} height={16} bg="#003399" top="42%" left="22%" depth={0.1} zIndex={3} variant="circle" decorative />
+    <Shape width={12} height={12} bg="#fff" top="15%" left="65%" depth={0.06} zIndex={3} variant="circle" decorative />
+    <Shape width={24} height={24} bg="#FFCC00" top="72%" left="4%" depth={0.08} zIndex={3} variant="circle" decorative />
+    <div class="deco-line" style="top:50%;left:6%;transform:rotate(-15deg)"></div>
+    <div class="deco-line" style="top:35%;right:20%;transform:rotate(30deg)"></div>
+
+    <!-- Coordinate readout -->
+    <div class="coords" id="coords">x: 0 / y: 0</div>
   </div>
 
-  <!-- Tags -->
-  <div class="tag" style="bottom:20px;left:40px;color:#333">giorgiovanini.eu</div>
-  <div class="tag" style="top:20px;right:20px;color:#333">N.001 / 2026</div>
-
-  <!-- Axis label -->
-  <div class="axis-label" style="bottom:50px;left:50%;transform:translateX(-50%)">Hover to explore</div>
-
-  <!-- Corner marks -->
-  <div class="corner-mark" style="top:8px;left:8px">+</div>
-  <div class="corner-mark" style="top:8px;right:8px">+</div>
-  <div class="corner-mark" style="bottom:8px;left:8px">+</div>
-  <div class="corner-mark" style="bottom:8px;right:8px">+</div>
-
-  <!-- ═══ CV SHAPES ═══ -->
-
-  <!-- Education -->
-  <Shape
-    width={180} height={180}
-    bg="#003399"
-    top="26%" left="55%"
-    depth={0.04} zIndex={10}
-    variant="circle"
-    label="Education" labelColor="#FFCC00"
-    revealTitle="LUISS Guido Carli" revealTitleColor="#FFCC00"
-    revealBody="BSc AI &amp; Management<br>2024 — present<br>Roma, Italia<br><br>Target: HEC / ESSEC<br>Paris, 2027"
-    revealColor="#fff"
-    pulse
-  />
-
-  <!-- Competences -->
-  <Shape
-    width={200} height={120}
-    bg="#C0392B"
-    top="60%" left="15%"
-    depth={0.06} zIndex={8}
-    label="Competences"
-    revealTitle="Technical + Political"
-    revealBody="Python / ML / SNA<br>Astro / React / Git<br>EU policy / Con. law<br>Electoral systems"
-  />
-
-  <!-- Lingue -->
-  <Shape
-    width={140} height={140}
-    bg="#FFCC00"
-    top="14%" right="12%"
-    depth={0.05} zIndex={9}
-    variant="triangle"
-    label="Lingue" labelColor="#003399" labelStyle="margin-top:40px"
-    revealTitle="IT / EN / FR"
-    revealBody="C2 / C2 / B2"
-    revealColor="#003399"
-    revealPadding="40px"
-  />
-
-  <!-- Interests -->
-  <Shape
-    width={130} height={130}
-    border="2px solid #fff"
-    top="54%" right="10%"
-    depth={0.08} zIndex={7}
-    variant="circle"
-    label="Interests"
-    revealTitle="Cinema / Music"
-    revealBody="Art cinema<br>Cantautorato<br>Geopolitics<br>Editorial design"
-  />
-
-  <!-- Convictions -->
-  <Shape
-    width={240} height={60}
-    border="2px solid #FFCC00"
-    bottom="14%" left="35%"
-    depth={0.03} zIndex={6}
-    label="Convictions" labelColor="#FFCC00" labelStyle="font-size:11px;letter-spacing:3px"
-    revealTitle="European federalist" revealTitleStyle="font-size:12px"
-    revealBody="Fiscal union / Digital sovereignty / Open source / Nuclear for AI"
-    revealColor="#FFCC00"
-  />
-
-  <!-- ═══ DECORATIVE ═══ -->
-  <Shape width={30} height={30} bg="#C0392B" top="20%" left="38%" depth={0.09} zIndex={3} variant="circle" decorative />
-  <Shape width={20} height={20} bg="#FFCC00" top="80%" left="60%" depth={0.07} zIndex={3} decorative rotate="45deg" />
-  <Shape width={16} height={16} bg="#003399" top="43%" left="12%" depth={0.1} zIndex={3} variant="circle" decorative />
-  <div class="deco-line" style="top:50%;left:8%;transform:rotate(-15deg)"></div>
-
-  <!-- Coordinate readout -->
-  <div class="coords" id="coords">x: 0 / y: 0</div>
+  <!-- Mobile hint (outside screen so it stays fixed during pan) -->
+  <div class="mobile-hint" id="mobile-hint">Drag to explore</div>
 </div>
 
 <style>
-  .screen {
-    position: relative;
+  .viewport {
     width: 100vw;
     height: 100vh;
-    background: var(--ink);
     overflow: hidden;
+    position: relative;
+    background: var(--ink);
+  }
+
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--ink);
     cursor: crosshair;
   }
 
@@ -259,72 +297,181 @@ import Shape from './Shape.astro';
     pointer-events: none;
   }
 
-  /* ═══ MOBILE ═══ */
+  .mobile-hint {
+    display: none;
+  }
+
+  /* ═══ MOBILE: pannable canvas ═══ */
   @media (max-width: 768px) {
+    .viewport {
+      height: 100svh;
+      touch-action: none;
+    }
+
     .screen {
-      height: auto;
-      min-height: 100vh;
-      min-height: 100svh;
-      padding: 2rem 1rem 4rem;
+      position: absolute;
+      width: 1100px;
+      height: 850px;
       cursor: default;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      overflow-y: auto;
+      will-change: transform;
     }
 
-    .big-name {
-      position: relative;
-      top: auto;
-      left: auto;
-      font-size: 48px;
-      mix-blend-mode: normal;
-      align-self: flex-start;
-      margin-bottom: 1rem;
-    }
-
-    .floating-char,
-    .grid-line,
-    .diagonal,
     .crosshair-h,
     .crosshair-v,
-    .corner-mark,
-    .deco-line,
     .coords {
       display: none;
     }
 
-    .axis-label {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      transform: none;
-      color: var(--dim);
-      margin-top: auto;
+    .big-name {
+      font-size: 56px;
     }
 
-    .tag {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      top: auto;
-      right: auto;
+    .axis-label {
+      display: none;
+    }
+
+    .mobile-hint {
+      display: block;
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--dim-gray, #555);
+      text-transform: uppercase;
+      pointer-events: none;
+      transition: opacity 1s ease;
     }
   }
 </style>
 
 <script>
+  const viewport = document.getElementById('viewport')!;
   const screen = document.getElementById('screen')!;
   const ch = document.getElementById('ch')!;
   const cv = document.getElementById('cv')!;
   const coords = document.getElementById('coords')!;
   const bigName = screen.querySelector('.big-name') as HTMLElement;
   const shapes = screen.querySelectorAll<HTMLElement>('[data-depth]');
+  const mobileHint = document.getElementById('mobile-hint');
 
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-  if (!isMobile) {
+  if (isMobile) {
+    /* ─── Mobile: pannable canvas + tap-to-reveal ─── */
+    const CANVAS_W = 1100;
+    const CANVAS_H = 850;
+
+    let panX = 0, panY = 0;
+    let startTouchX = 0, startTouchY = 0;
+    let startPanX = 0, startPanY = 0;
+    let velocityX = 0, velocityY = 0;
+    let lastTouchX = 0, lastTouchY = 0;
+    let lastTime = 0;
+    let wasDrag = false;
+    let inertiaFrame = 0;
+
+    function clamp() {
+      const vw = viewport.offsetWidth;
+      const vh = viewport.offsetHeight;
+      panX = Math.max(-(CANVAS_W - vw), Math.min(0, panX));
+      panY = Math.max(-(CANVAS_H - vh), Math.min(0, panY));
+    }
+
+    function applyPan() {
+      screen.style.transform = `translate3d(${panX}px,${panY}px,0)`;
+    }
+
+    // Start at top-left so the name is visible
+    clamp();
+    applyPan();
+
+    viewport.addEventListener('touchstart', (e) => {
+      cancelAnimationFrame(inertiaFrame);
+      const t = e.touches[0];
+      startTouchX = lastTouchX = t.clientX;
+      startTouchY = lastTouchY = t.clientY;
+      startPanX = panX;
+      startPanY = panY;
+      lastTime = Date.now();
+      velocityX = velocityY = 0;
+      wasDrag = false;
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const t = e.touches[0];
+      const now = Date.now();
+      const dt = now - lastTime || 16;
+
+      const dx = t.clientX - startTouchX;
+      const dy = t.clientY - startTouchY;
+
+      if (!wasDrag && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+        wasDrag = true;
+        // Close any open shape when drag starts
+        screen.querySelectorAll('.tap-active').forEach(s => s.classList.remove('tap-active'));
+      }
+
+      panX = startPanX + dx;
+      panY = startPanY + dy;
+      clamp();
+      applyPan();
+
+      // Track velocity for inertia (normalised to ~16ms frame)
+      velocityX = ((t.clientX - lastTouchX) / dt) * 16;
+      velocityY = ((t.clientY - lastTouchY) / dt) * 16;
+      lastTouchX = t.clientX;
+      lastTouchY = t.clientY;
+      lastTime = now;
+    }, { passive: false });
+
+    viewport.addEventListener('touchend', () => {
+      if (!wasDrag) return;
+      function decelerate() {
+        velocityX *= 0.92;
+        velocityY *= 0.92;
+        panX += velocityX;
+        panY += velocityY;
+        clamp();
+        applyPan();
+        if (Math.abs(velocityX) > 0.5 || Math.abs(velocityY) > 0.5) {
+          inertiaFrame = requestAnimationFrame(decelerate);
+        }
+      }
+      inertiaFrame = requestAnimationFrame(decelerate);
+    });
+
+    // Tap-to-reveal (delegated from screen)
+    screen.addEventListener('click', (e) => {
+      if (wasDrag) return;
+
+      // Let links inside active shapes work
+      const link = (e.target as HTMLElement).closest('a');
+      if (link && link.closest('.tap-active')) return;
+
+      const shape = (e.target as HTMLElement).closest('[data-depth]:not([style*="pointer-events:none"])') as HTMLElement | null;
+      if (!shape) {
+        screen.querySelectorAll('.tap-active').forEach(s => s.classList.remove('tap-active'));
+        return;
+      }
+
+      const wasActive = shape.classList.contains('tap-active');
+      screen.querySelectorAll('.tap-active').forEach(s => s.classList.remove('tap-active'));
+      if (!wasActive) shape.classList.add('tap-active');
+    });
+
+    // Fade out the hint after a few seconds
+    if (mobileHint) {
+      setTimeout(() => { mobileHint.style.opacity = '0'; }, 3500);
+    }
+
+  } else {
+    /* ─── Desktop: parallax + crosshair ─── */
     let mx = 0.5, my = 0.5;
     let animMx = 0.5, animMy = 0.5;
 
@@ -363,15 +510,5 @@ import Shape from './Shape.astro';
       requestAnimationFrame(animate);
     }
     animate();
-  } else {
-    // Mobile: tap-to-reveal
-    screen.querySelectorAll<HTMLElement>('[data-depth]:not([style*="pointer-events:none"])').forEach((shape) => {
-      shape.addEventListener('click', () => {
-        const wasActive = shape.classList.contains('tap-active');
-        // Close all others
-        screen.querySelectorAll('.tap-active').forEach((s) => s.classList.remove('tap-active'));
-        if (!wasActive) shape.classList.add('tap-active');
-      });
-    });
   }
 </script>

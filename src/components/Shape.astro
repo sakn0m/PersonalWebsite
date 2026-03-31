@@ -133,6 +133,18 @@ const titleStyle = [
     opacity: 0.8;
   }
 
+  /* Links inside reveal content (injected via set:html) */
+  .reveal-body :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    pointer-events: auto;
+    transition: opacity 0.15s;
+  }
+
+  .reveal-body :global(a:hover) {
+    opacity: 1;
+  }
+
   .pulse-ring {
     position: absolute;
     border-radius: 50%;
@@ -148,12 +160,6 @@ const titleStyle = [
 
   /* Mobile: tap-to-reveal replaces hover */
   @media (max-width: 768px) {
-    .shape {
-      position: relative;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
     .shape:hover .shape-label { opacity: 1; }
     .shape:hover .reveal { opacity: 0; }
 
