@@ -11,7 +11,7 @@ export const articles: Article[] = [
     title: "Bombing Iran Won't Free It",
     tag: 'Geopolitics',
     date: 'March 2026',
-    href: 'https://jojo.news/posts/1-bombing-iran-wont-free-it',
+    href: 'https://jojo.news/posts/bombing-iran-won-t-free-it',
     external: true,
   },
 ];
