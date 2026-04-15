@@ -7,9 +7,6 @@ import { articles } from '../../data/articles';
   <section class="blog-hero">
     <div class="container">
       <h1 class="blog-title">Writing</h1>
-          <p class="blog-subtitle">
-        Published on <a href="https://jojo.news" target="_blank" rel="noopener noreferrer" class="blog-link">jojo.news</a>
-      </p>
     </div>
   </section>
 
@@ -26,6 +23,7 @@ import { articles } from '../../data/articles';
             >
               <div class="article-info">
                 <span class="article-title-text">{article.title}</span>
+                {article.subtitle && <span class="article-subtitle">{article.subtitle}</span>}
                 <span class="article-meta">{article.tag} / {article.date}{article.external ? ' ↗' : ''}</span>
               </div>
               <span class="article-arrow">&rarr;</span>
@@ -50,11 +48,6 @@ import { articles } from '../../data/articles';
     color: var(--paper);
     margin-bottom: var(--space-xs);
     letter-spacing: -0.02em;
-  }
-  
-    .blog-link {
-    font-weight: 700;
-    border-bottom: 2px solid var(--gold);
   }
 
   .blog-list {
@@ -113,6 +106,12 @@ import { articles } from '../../data/articles';
     text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 0.4;
+  }
+
+  .article-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.65;
+    font-style: italic;
   }
 
   .article-arrow {
