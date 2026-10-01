@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'BSc AI & Management @ LUISS Guido Carli. Writing about technology, geopolitics and digital sovereignty.',
+  description = 'BSc AI & Management @ LUISS Guido Carli. Writing about AI, data and digital sovereignty.',
   ogImage = '/og-image.png',
 } = Astro.props;
 
@@ -28,7 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="Giorgio Vanini, AI, Data Analysis, Management, LUISS, Geopolitics, European Politics" />
+  <meta name="keywords" content="Giorgio Vanini, AI, Data Analysis, Machine Learning, Management, LUISS" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -63,10 +63,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     ],
     "knowsAbout": [
       "Artificial Intelligence",
-      "European Politics",
-      "Digital Sovereignty",
-      "Geopolitics",
-      "AI Policy"
+      "Data Analysis",
+      "Machine Learning",
+      "Digital Sovereignty"
     ]
   })} />
 </head>
