@@ -4,6 +4,7 @@ const navLinks = [
   {label: "Projects", href: '/#projects' },
   { label: 'Writing', href: '/#writing' },
   { label: 'Connect', href: '/#connect' },
+  { label: 'CV', href: '/cv.pdf', external: true },
 ];
 ---
 
@@ -23,7 +24,14 @@ const navLinks = [
       </button>
       <ul id="nav-menu" class="nav-list">
         {navLinks.map(link => (
-          <li><a href={link.href} class="nav-link">{link.label}</a></li>
+          <li>
+            <a
+              href={link.href}
+              class="nav-link"
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+            >{link.label}</a>
+          </li>
         ))}
       </ul>
     </nav>
