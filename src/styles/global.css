@@ -1,35 +1,23 @@
-/* === DESIGN SYSTEM: Brutalist EU Political === */
-
-@import '@fontsource/syne/400.css';
-@import '@fontsource/syne/700.css';
-@import '@fontsource/syne/800.css';
-@import '@fontsource/space-grotesk/400.css';
-@import '@fontsource/space-grotesk/700.css';
+/* === DESIGN SYSTEM: Quiet Minimal === */
 
 :root {
   /* Palette */
-  --eu-blue:   #0052B4;
-  --eu-dark:   #003A80;
-  --eu-light:  #4A8FE0;
-  --gold:      #FFD700;
-  --red:       #C8102E;
-  --ink:       #0C0F1A;
-  --paper:     #F5F0E8;
+  --text:      #222222;
+  --muted:      #767676;
+  --link-bg:   #e3e3ff;
+  --rule:       #000000;
+  --bg:         #ffffff;
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'Space Grotesk', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro", "Geist",
+    "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto,
+    "segoe ui", arial, sans-serif;
+  --font-mono: "SF Mono", "Geist Mono", ui-monospace, "Cascadia Code",
+    "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
-  /* Spacing */
-  --space-xs:  0.5rem;
-  --space-sm:  1rem;
-  --space-md:  2rem;
-  --space-lg:  4rem;
-  --space-xl:  6rem;
-
-  /* Borders */
-  --border-thick: 3px solid var(--eu-blue);
-  --border-gold:  3px solid var(--gold);
+  /* Layout */
+  --prose: 46em;
+  --gap: 2rem;
 }
 
 /* === RESET === */
@@ -51,9 +39,10 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.6;
-  color: var(--paper);
-  background-color: var(--ink);
+  line-height: 1.45;
+  color: var(--text);
+  background-color: var(--bg);
+  padding: 2rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -64,119 +53,215 @@ img, svg {
   max-width: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-wrap: balance;
+  max-width: var(--prose);
+}
+
+p, li, dt, dd, span, a {
+  max-width: var(--prose);
+}
+
+p {
+  text-wrap: pretty;
 }
 
 ul, ol {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  line-height: 1.05;
-  text-transform: uppercase;
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
 }
 
-/* === ENTRANCE ANIMATIONS === */
+/* === LINKS === */
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
+a:hover,
+a:focus {
+  background-color: var(--link-bg);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .fade-up {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+a:focus-visible {
+  outline: 2px solid var(--rule);
+  outline-offset: 2px;
 }
 
-/* === UTILITY === */
-
-.section-ink {
-  background-color: var(--ink);
-  color: var(--paper);
+/* Light arrow after linked headings */
+.fw3 {
+  font-weight: 300;
 }
 
-.section-paper {
-  background-color: var(--paper);
-  color: var(--ink);
-  border-left: var(--border-thick);
-}
+/* === SCREEN READER ONLY === */
 
-.section-blue {
-  background-color: var(--eu-blue);
-  color: var(--paper);
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-md);
-}
-
-/* === TICKER === */
-
-.ticker {
-  background-color: var(--red);
-  color: var(--paper);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
   overflow: hidden;
+  clip-path: inset(50%);
   white-space: nowrap;
-  border-top: 3px solid var(--ink);
-  border-bottom: 3px solid var(--ink);
-  padding: 0.5rem 0;
 }
 
-.ticker-track {
-  display: inline-flex;
-  animation: ticker-scroll 35s linear infinite;
+/* === SKIP LINK === */
+
+.skip-link {
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-.ticker-track span {
-  padding: 0 var(--space-md);
+.skip-link:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  background-color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 200;
 }
 
-.ticker-track span::after {
-  content: '/';
-  padding-left: var(--space-md);
-  opacity: 0.4;
+/* === MASTHEAD === */
+
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-@keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.masthead nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  gap: 0 1ch;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.breadcrumbs .breadcrumb-past a {
+  color: var(--muted);
+}
+
+.breadcrumbs .breadcrumb-current a {
+  text-decoration: none;
+}
+
+/* === SECTION GRID === */
+
+.section {
+  border-top: 1px solid var(--rule);
+  padding-top: 3rem;
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: minmax(10rem, 20%) 1fr;
+  gap: var(--gap);
+}
+
+.section > header h2 {
+  text-transform: lowercase;
+  margin: 0;
+}
+
+.subsection {
+  display: grid;
+  grid-template-columns: minmax(9rem, 16rem) 1fr;
+  gap: var(--gap);
+}
+
+.subsection + .subsection {
+  margin-top: 2rem;
+}
+
+.subsection h3 {
+  text-transform: lowercase;
+  margin: 0;
+  font-weight: 500;
+}
+
+.section-contents {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.section-contents p + p {
+  margin-top: 1rem;
+}
+
+.section-contents ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0 var(--gap);
+}
+
+.section-contents li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+/* === UTILILITY === */
+
+.muted {
+  color: var(--muted);
+}
+
+.mt0 {
+  margin-top: 0;
 }
 
 /* === RESPONSIVE === */
 
-@media (max-width: 768px) {
-  :root {
-    --space-lg: 2.5rem;
-    --space-xl: 4rem;
+@media (min-width: 768px) {
+  body {
+    padding: 4rem;
   }
 
-  .container {
-    padding: 0 var(--space-sm);
+  .section {
+    margin-top: 8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .section-paper {
-    border-left: none;
-    border-top: var(--border-thick);
+  .subsection {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .subsection + .subsection {
+    margin-top: 2.5rem;
+  }
+
+  .section-contents ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
