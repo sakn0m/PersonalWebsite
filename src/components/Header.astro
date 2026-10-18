@@ -9,19 +9,6 @@ const navLinks = [
 ---
 
 <div class="masthead" data-nosnippet>
-  <button
-    class="nav-toggle"
-    id="nav-open"
-    type="button"
-    aria-controls="nav-modal"
-    aria-expanded="false"
-    aria-label="Open main navigation."
-  >
-    <span class="nav-toggle-bar"></span>
-    <span class="nav-toggle-bar"></span>
-    <span class="nav-toggle-bar"></span>
-  </button>
-
   <nav class="breadcrumbs" aria-label="breadcrumbs">
     <ol>
       <li class="breadcrumb-current"><a href="/" aria-current="page">Giorgio Vanini</a></li>
@@ -42,55 +29,6 @@ const navLinks = [
     </ul>
   </nav>
 </div>
-
-<div class="nav-modal hidden" id="nav-modal" role="dialog" aria-modal="true" aria-label="Main navigation modal.">
-  <div class="nav-modal-content">
-    <button
-      class="nav-close"
-      id="nav-close"
-      type="button"
-      aria-controls="nav-modal"
-      aria-expanded="false"
-      aria-label="Close main navigation."
-    >Close</button>
-    <nav aria-label="main">
-      <ul>
-        {navLinks.map(link => (
-          <li>
-            <a
-              href={link.href}
-              target={link.external ? '_blank' : undefined}
-              rel={link.external ? 'noopener noreferrer' : undefined}
-            >{link.label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </div>
-</div>
-
-<script>
-  const openBtn = document.getElementById('nav-open');
-  const closeBtn = document.getElementById('nav-close');
-  const modal = document.getElementById('nav-modal');
-
-  const setOpen = (open: boolean) => {
-    modal?.classList.toggle('hidden', !open);
-    openBtn?.setAttribute('aria-expanded', String(open));
-    document.body.classList.toggle('nav-modal-open', open);
-  };
-
-  openBtn?.addEventListener('click', () => setOpen(true));
-  closeBtn?.addEventListener('click', () => setOpen(false));
-
-  modal?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setOpen(false));
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
-  });
-</script>
 
 <style>
   .masthead {
@@ -118,82 +56,9 @@ const navLinks = [
     padding: 0.25rem 0.25rem;
   }
 
-  /* BURGER — only shown on small screens */
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    font: inherit;
-  }
-
-  .nav-toggle-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: var(--text);
-  }
-
-  /* NAV MODAL */
-  .nav-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 150;
-    background: var(--bg);
-  }
-
-  .nav-modal.hidden {
-    display: none;
-  }
-
-  .nav-modal-content {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .nav-close {
-    align-self: flex-end;
-    background: none;
-    border: none;
-    font: inherit;
-    font-size: 0.875rem;
-    text-transform: lowercase;
-    cursor: pointer;
-    padding: 0.25rem;
-  }
-
-  .nav-modal-content ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .nav-modal-content a {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
-    text-decoration: none;
-    text-transform: lowercase;
-  }
-
-  body.nav-modal-open {
-    overflow: hidden;
-  }
-
   @media (max-width: 767px) {
     .masthead-nav {
       display: none;
-    }
-
-    .nav-toggle {
-      display: flex;
     }
   }
 </style>
