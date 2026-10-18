@@ -145,12 +145,6 @@ a:focus-visible {
   gap: 1rem;
 }
 
-.masthead nav {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
 .breadcrumbs ol {
   display: flex;
   gap: 0 1ch;
@@ -173,8 +167,8 @@ a:focus-visible {
   padding-top: 3rem;
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: minmax(10rem, 20%) 1fr;
-  gap: var(--gap);
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .section > header h2 {
@@ -184,12 +178,12 @@ a:focus-visible {
 
 .subsection {
   display: grid;
-  grid-template-columns: minmax(9rem, 16rem) 1fr;
-  gap: var(--gap);
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
 }
 
 .subsection + .subsection {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .subsection h3 {
@@ -237,6 +231,20 @@ a:focus-visible {
 
   .section {
     margin-top: 8rem;
+    grid-template-columns: minmax(10rem, 20%) 1fr;
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  .section > header {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .section .subsection {
+    grid-column: 2;
+    grid-template-columns: minmax(9rem, 16rem) 1fr;
+    gap: var(--gap);
   }
 }
 
