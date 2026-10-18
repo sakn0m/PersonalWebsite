@@ -193,11 +193,26 @@ const projects = [
         <h3>Contact</h3>
       </header>
       <div class="section-contents">
-        <p><a href="mailto:giorgio@giorgiovanini.eu">Send a message</a> about projects, writing, or collaborations.</p>
+        <p><a href="#" class="email-link" data-email="Z2lvcmdpb0BnaW9yZ2lvdmFuaW5pLmV1">Send a message</a> about projects, writing, or collaborations.</p>
       </div>
     </section>
   </section>
 </BaseLayout>
+
+<script>
+  // Email obfuscation: the address is base64-encoded in the markup and only
+  // assembled into a mailto href in the browser, so raw HTML never exposes it.
+  document.querySelectorAll('.email-link').forEach((link) => {
+    const encoded = link.getAttribute('data-email');
+    if (!encoded) return;
+    try {
+      const email = atob(encoded);
+      if (email.includes('@')) link.setAttribute('href', `mailto:${email}`);
+    } catch {
+      // leave href as-is if decoding fails
+    }
+  });
+</script>
 
 <style>
   .home-header {
