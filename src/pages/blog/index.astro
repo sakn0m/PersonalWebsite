@@ -3,168 +3,113 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articles } from '../../data/articles';
 ---
 
-<BaseLayout title="Blog — Giorgio Vanini" description="Articles on AI, European politics, and geopolitics.">
-  <section class="blog-hero">
-    <div class="container">
-      <h1 class="blog-title">Writing</h1>
-    </div>
-  </section>
+<BaseLayout title="Writing — Giorgio Vanini" description="Articles on AI, European politics, and geopolitics.">
+  <header class="writing-header">
+    <h1>Writing</h1>
+  </header>
 
-  <section class="blog-list section-ink fade-up">
-    <div class="container">
-      <ol class="article-list">
-        {articles.map(article => (
-          <li class="article-item">
-            <a
-              href={article.href}
-              target={article.external ? '_blank' : undefined}
-              rel={article.external ? 'noopener noreferrer' : undefined}
-              class="article-link"
-            >
-              <div class="article-info">
-                <span class="article-title-text">{article.title}</span>
-                {article.subtitle && <span class="article-subtitle">{article.subtitle}</span>}
-                <span class="article-meta">{article.tag} / {article.date}{article.external ? ' ↗' : ''}</span>
-              </div>
-              <span class="article-arrow">&rarr;</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-
-    </div>
+  <section class="writing-list">
+    {articles.map(article => (
+      <article class="writing-item">
+        <h2>
+          <a
+            href={article.href}
+            target={article.external ? '_blank' : undefined}
+            rel={article.external ? 'noopener noreferrer' : undefined}
+          >{article.title}</a><span class="fw3" aria-hidden="true"> →</span>
+        </h2>
+        <dl>
+          <div>
+            <dt>Published in</dt>
+            <dd>{article.tag}</dd>
+          </div>
+          <div>
+            <dt>Date</dt>
+            <dd>{article.date}</dd>
+          </div>
+          {article.subtitle && (
+            <div>
+              <dt>Note</dt>
+              <dd>{article.subtitle}</dd>
+            </div>
+          )}
+        </dl>
+      </article>
+    ))}
   </section>
 </BaseLayout>
 
 <style>
-  .blog-hero {
-    background-color: var(--eu-blue);
-    padding: var(--space-xl) 0 var(--space-lg);
+  .writing-header {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
   }
 
-  .blog-title {
-    font-size: 4rem;
-    text-transform: uppercase;
-    color: var(--paper);
-    margin-bottom: var(--space-xs);
-    letter-spacing: -0.02em;
+  .writing-header h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 0.92;
+    text-transform: lowercase;
   }
 
-  .blog-list {
-    padding: var(--space-xl) 0;
-    min-height: 50vh;
+  .writing-item {
+    padding-top: 2rem;
+    margin-top: 2rem;
   }
 
-  .article-list {
-    counter-reset: none;
+  .writing-item + .writing-item {
+    border-top: 1px solid var(--rule);
   }
 
-  .article-item {
-    border-bottom: 1px solid rgba(245, 240, 232, 0.12);
-    border-left: 3px solid transparent;
-    transition: border-color 0.15s;
-  }
-
-  .article-item:first-child {
-    border-top: 1px solid rgba(245, 240, 232, 0.12);
-  }
-
-  .article-item:hover {
-    border-left-color: var(--gold);
-  }
-
-  .article-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-md) var(--space-sm) var(--space-md) var(--space-sm);
-    transition: background-color 0.15s;
-  }
-
-  .article-link:hover {
-    background-color: rgba(245, 240, 232, 0.03);
-  }
-
-  .article-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .article-title-text {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: var(--paper);
-    letter-spacing: -0.01em;
-  }
-
-  .article-meta {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.4;
-  }
-
-  .article-subtitle {
-    font-size: 0.8rem;
-    opacity: 0.65;
-    font-style: italic;
-  }
-
-  .article-arrow {
+  .writing-item h2 {
     font-size: 1.25rem;
-    opacity: 0.2;
-    transition: opacity 0.15s, transform 0.15s;
+    font-weight: 500;
+    line-height: 1.35;
+    max-width: none;
   }
 
-  .article-link:hover .article-arrow {
-    opacity: 1;
-    transform: translateX(4px);
+  .writing-item h2 a {
+    text-decoration: none;
   }
 
-  @media (max-width: 768px) {
-    .blog-title {
-      font-size: 2.5rem;
+  .writing-item dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 2rem;
+    margin-top: 1rem;
+  }
+
+  .writing-item dl div {
+    display: flex;
+    gap: 0.5ch;
+    align-items: baseline;
+    margin: 0;
+  }
+
+  .writing-item dt {
+    font-size: 0.875rem;
+    text-transform: lowercase;
+    color: var(--muted);
+  }
+
+  .writing-item dd {
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .writing-header {
+      margin-top: 16rem;
+      margin-bottom: 8rem;
     }
 
-    .article-title-text {
-      font-size: 1.1rem;
+    .writing-header h1 {
+      font-size: 6rem;
     }
 
-    .article-item:hover {
-      border-left-color: transparent;
-    }
-
-    .article-item.scroll-focus {
-      border-left-color: var(--gold);
+    .writing-item {
+      padding-top: 4rem;
+      margin-top: 4rem;
     }
   }
 </style>
-
-<script>
-  if (window.matchMedia('(max-width: 768px)').matches) {
-    const items = document.querySelectorAll('.article-item');
-    let current = null;
-    const update = () => {
-      const center = window.innerHeight / 2;
-      let closest = null;
-      let minDist = Infinity;
-      items.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        const itemCenter = rect.top + rect.height / 2;
-        const dist = Math.abs(itemCenter - center);
-        if (dist < minDist) { minDist = dist; closest = item; }
-      });
-      if (closest !== current) {
-        current?.classList.remove('scroll-focus');
-        closest?.classList.add('scroll-focus');
-        current = closest;
-      }
-    };
-    window.addEventListener('scroll', update, { passive: true });
-    update();
-  }
-</script>

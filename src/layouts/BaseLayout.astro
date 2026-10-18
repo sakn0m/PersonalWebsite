@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Ticker from '../components/Ticker.astro';
 
 interface Props {
   title: string;
@@ -12,12 +11,13 @@ interface Props {
 
 const {
   title,
-  description = 'BSc AI & Management @ LUISS Guido Carli. Writing about AI, data and digital sovereignty.',
+  description = 'BSc AI & Management student at LUISS Guido Carli. Writing about AI, data, and digital sovereignty.',
   ogImage = '/og-image.png',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +57,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "name": "LUISS Guido Carli"
     },
     "sameAs": [
-      "https://www.linkedin.com/in/giorgio-vanini-8627123a4/",
+      "https://www.linkedin.com/in/giorgiovanini",
       "https://github.com/sakn0m",
       "https://jojo.news"
     ],
@@ -70,26 +70,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   })} />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <Header />
-  <Ticker />
-  <main>
+  <main id="main">
     <slot />
   </main>
   <Footer />
 </body>
-
-<script>
-  // Entrance animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-
-</script>
 </html>
